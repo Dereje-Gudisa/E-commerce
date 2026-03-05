@@ -7,8 +7,7 @@ import About from './About.jsx';
 import {Routes, Route, useNavigate } from 'react-router-dom';
 
 function App() {
-
-
+  
   return (
     <>
       <div className='App'>

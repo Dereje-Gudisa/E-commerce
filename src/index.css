@@ -1,1 +1,145 @@
 @import "tailwindcss";
+
+.header{
+    background-color: whitesmoke;
+    border: 2px solid black;
+}
+.header-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-area{
+    border:2px solid green;
+    display: flex;
+    justify-content: space-between;
+}
+.search-field{
+    border: 2px solid gray;
+}
+
+.search-options{
+    border: 2px solid gray;
+}
+
+.search-button{
+    border:2px solid red;
+}
+
+.btn{
+    border: 2px solid black;
+    width: 80px;
+    height: 30px
+}
+
+.nav-items{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* Home */
+
+.home{
+    text-align: center;
+}
+
+.products{
+    display:flex;
+    justify-content: center;
+    margin:10px;
+}
+
+.items-track{
+    padding-left: 20px;
+}
+
+.card-holder{
+    display: flex;
+    justify-content:space-around;
+}
+
+.card{
+    width:250px;
+    height: auto;
+    border:1px solid gainsboro;
+    display: flex;
+    flex-direction: column  ;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* footer */
+
+.footer{
+    text-align:center;
+    border: 2px solid green;
+}
+
+/* card */
+
+.old-price{
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 10px;
+}
+.new-price{
+    color:orange;
+    font-weight: bold;
+}
+
+.item-class{
+    color: orange;
+}
+
+.item-name{
+    font-weight: bold;
+    color: gray;
+}
+
+.add-to-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(221, 144, 0) ;
+    width: 150px;
+    padding: 8px;
+    border-radius: 20px;
+    color: white;
+    margin-top: 10px;
+
+}
+
+.bottom-icons-container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.ratings{
+    display: flex;
+    justify-content: center;
+    color: orange;
+    margin: none;
+
+}
+
+.cart-icon{
+    margin-right: 10px;
+}
+
+.shuffle{
+    display: flex;
+    width: 60px;
+    height: auto;
+    justify-content: space-around;
+}
+
+.shuffle-icon{
+
+}
+
+
