@@ -1,4 +1,7 @@
 import React from 'react'
+import { FaShoppingCart } from "react-icons/fa";
+import Logo from "./assets/logo.svg";
+
 
 const Header = () => {
   return (
@@ -21,11 +24,11 @@ const Header = () => {
             
         </div>
         <div className='search-area'>
-          <h1>D-mart</h1>
+          
+          <img src={Logo} alt="LOGO" className='logo-image' />
 
           <div>
-            
-            <input type="text" className='search-field' />
+            <input type="text" placeholder='Search Products...' className='search-field' />
             <select name="catagory" id="" className='search-options'>
               <option value="food">Foods</option>
               <option value="accesories">Accesories</option>
@@ -36,9 +39,11 @@ const Header = () => {
           </div>
 
           <div className='sign-ins'>
-            <button className="btn cart-button">cart</button>
-            <button className="btn sign-in"> sign In</button>
-            <button className="btn sign-up"> sign Up</button>
+            <button className="cart-button"><FaShoppingCart className='top-cart-icon'/></button>
+            <div className='sign-holder'>
+             <button className="sign-btn sign-in"> sign In </button>
+             <button className="sign-btn sign-up">sign Up</button>
+            </div>
           </div>
         </div>
     </div>

@@ -1,47 +1,115 @@
 @import "tailwindcss";
 
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+/* header */
+
+.app{
+
+}
+
 .header{
     background-color: whitesmoke;
-    border: 2px solid black;
+    margin-bottom: 50px;
+    height: 200px;
 }
 .header-info{
     display: flex;
     justify-content: space-between;
+    margin: 0px 10px 50px 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid gray;
+    font-size: small;
 }
 
 .search-area{
-    border:2px solid green;
     display: flex;
     justify-content: space-between;
 }
 .search-field{
-    border: 2px solid gray;
+    border: 1px solid gray;
+    width: 400px;
+    height: 35px;
+    padding-left: 10px;
+    
 }
 
 .search-options{
-    border: 2px solid gray;
+    border: 1px solid gray;
+    width: 100px;
+    height: 35px;
+    padding: px;
+    text-align: center;
 }
 
 .search-button{
-    border:2px solid red;
+    border:none;
+    width: 100px;
+    height: 35px;
+    background-color: orange;
 }
 
-.btn{
-    border: 2px solid black;
-    width: 80px;
-    height: 30px
+.sign-btn{
+    border:none;
+    width: 100px;
+    height: 30px;
+}
+
+.sign-up{
+    background-color: orange;
+    height: 100%;
+    border-radius: 30px;
+    color: white;
+}
+
+.sign-holder{
+    border:1px solid gray;
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.sign-ins{
+    display:flex;
+    text-align: center;
+}
+
+.top-cart-icon{
+    margin-right: 30px;
+    font-size: 1.3rem;
+    
 }
 
 .nav-items{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
+.nav-links{
+    margin: 10px 0px 10px 60px;
+}
 
 /* Home */
 
 .home{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .products{
@@ -69,13 +137,6 @@
     align-items: center;
     padding: 15px;
     border-radius: 15px;
-}
-
-/* footer */
-
-.footer{
-    text-align:center;
-    border: 2px solid green;
 }
 
 /* card */
@@ -129,6 +190,7 @@
 
 .cart-icon{
     margin-right: 10px;
+
 }
 
 .shuffle{
@@ -143,3 +205,73 @@
 }
 
 
+.advert{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.advert-image2{
+    height: 100%;
+}
+
+.advert-heading{
+    
+}
+
+.advert-text{
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-wrap: wrap;
+    color: rgb(94, 94, 94);
+    width: 80%;
+    margin: 0px 20px 20px 0px;
+}
+
+.shop-now-button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
+    color:white;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+/* footer */
+
+.footer{
+    background-color: gray;
+    height: 200px;
+    color: white;
+    text-align: center;
+    height: 90%;
+}
+.copyright{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    background-color: orange;
+    color: white;
+}
+
+.about-container{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 50px;
+}
+
+.about-header{
+    font-weight: bold;
+    color: orange;
+}
