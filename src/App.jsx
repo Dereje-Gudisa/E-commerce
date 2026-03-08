@@ -4,17 +4,22 @@ import Nav from './Nav.jsx';
 import Home from './Home.jsx';
 import Footer from './Footer.jsx';
 import About from './About.jsx';
-import {Routes, Route, useNavigate } from 'react-router-dom';
+import Cart from './Cart.jsx';
+import {Routes, Route } from 'react-router-dom';
+import { CartProvider } from "./context/CartContext.jsx";
+
 
 function App() {
   
   return (
     <>
       <div className='app'>
-        <Header />
-        <Nav />
-        <Home />
-        <Footer />
+        <CartProvider>
+          <Header />
+          <Nav />
+          <Home />
+          <Footer />
+        </CartProvider>
       </div>
 
     </>

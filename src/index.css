@@ -31,6 +31,32 @@ body{
     font-size: small;
 }
 
+.cart-icon-badge{
+    display: flex;
+    padding: 0px;
+}
+
+.cart-button{
+    padding: 0px;
+    margin: 0px;
+}
+
+.badge{
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    background-color: orange;
+    color: white;
+
+}
+
+
+
 .search-area{
     display: flex;
     justify-content: space-between;
@@ -236,7 +262,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: red;
+    background-color: orange;
     color:white;
     width: 150px;
     height: 50px;

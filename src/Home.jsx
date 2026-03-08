@@ -1,13 +1,13 @@
 import React from 'react'
-import Cards from './cards.jsx';
+import Cards from './Cards.jsx';
 import Advert from './advert.jsx';
-
+import products from './data/products.js';
+import Cart from './Cart.jsx';
 
 const Home = () => {
   return (
     <div className='home'>
       <Advert />
-      
       <h1>Our Products</h1>
       <div className="products">
         <button className="items-track">All Products</button>
@@ -16,11 +16,12 @@ const Home = () => {
         <button className="items-track"> Top Selling</button>
       </div>
       <div className="card-holder">
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
+        {products.map((product) => (
+        <Cards key={product.id} product={product} />
+
+        ))}
       </div>
+      <Cart />
     </div>
   )
 }

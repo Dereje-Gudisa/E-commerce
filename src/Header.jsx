@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./assets/logo.svg";
+import { CartContext } from './context/CartContext';
 
 
 const Header = () => {
+  const { cart } = useContext(CartContext);
   return (
     <div className='header'>
         <div className='header-info'>
@@ -39,7 +41,15 @@ const Header = () => {
           </div>
 
           <div className='sign-ins'>
-            <button className="cart-button"><FaShoppingCart className='top-cart-icon'/></button>
+
+            <div className="cart-icon-badge">
+              <button className="cart-button">
+                <div className="badge">
+                  {cart.length}
+                </div>
+                <FaShoppingCart className='top-cart-icon'/>
+              </button>
+            </div>
             <div className='sign-holder'>
              <button className="sign-btn sign-in"> sign In </button>
              <button className="sign-btn sign-up">sign Up</button>

@@ -1,24 +1,30 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { RiStarSLine } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
+import { CartContext } from "./context/CartContext";
 
+const Cards = ({product}) => {
 
-import product1 from './assets/product-4.png';
-const Cards = () => {
+  const { addToCart } = useContext(CartContext);
+
   return (
+
     <div className='card'>
       <div className="image-container">
-        <img src={product1} alt="product 4"/>
+        <img src={product.image} alt="product"/>
       </div>
-        <p className='item-class'>camera</p>
-        <h1 className='item-name'>Canon camera</h1>
+        <p className='item-class'>{product.catagory}</p>
+        <h1 className='item-name'>{product.name}</h1>
         <div>
-          <span className="old-price">$1,500</span>
-          <span className="new-price">$1,000 </span>
+          <span className="old-price">{`$ ${product.oldPrice}`}</span>
+          <span className="new-price">{`$ ${product.newPrice}`} </span>
         </div>
-        <button className='add-to-cart'><FaShoppingCart className='cart-icon'/>Add to cart</button><br />
+        <button className='add-to-cart' onClick={()=> {addToCart(product)}} >
+          <FaShoppingCart className='cart-icon'/>Add to cart
+        </button><br />
+
         <div className="bottom-icons-container">
           <button className="ratings">
           <RiStarSLine />
