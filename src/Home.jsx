@@ -1,6 +1,6 @@
 import React from 'react'
 import Cards from './Cards.jsx';
-import Advert from './advert.jsx';
+import Advert from './Advert.jsx';
 import products from './data/products.js';
 
 const Home = () => {
