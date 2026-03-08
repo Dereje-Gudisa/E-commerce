@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {Routes, Route } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { RiStarSLine } from "react-icons/ri";
 import { FaHeart } from "react-icons/fa";
@@ -24,7 +25,7 @@ const Cards = ({product}) => {
         <button className='add-to-cart' onClick={()=> {addToCart(product)}} >
           <FaShoppingCart className='cart-icon'/>Add to cart
         </button><br />
-
+        
         <div className="bottom-icons-container">
           <button className="ratings">
           <RiStarSLine />

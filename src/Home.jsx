@@ -2,7 +2,6 @@ import React from 'react'
 import Cards from './Cards.jsx';
 import Advert from './advert.jsx';
 import products from './data/products.js';
-import Cart from './Cart.jsx';
 
 const Home = () => {
   return (
@@ -21,7 +20,6 @@ const Home = () => {
 
         ))}
       </div>
-      <Cart />
     </div>
   )
 }

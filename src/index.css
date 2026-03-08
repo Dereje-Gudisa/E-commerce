@@ -9,12 +9,13 @@
 body{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 /* header */
 
 .app{
-
+    
 }
 
 .header{
@@ -300,4 +301,25 @@ body{
 .about-header{
     font-weight: bold;
     color: orange;
+}
+
+/* card */
+
+.cart-page{
+    border: 2px solid blue;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    padding: 20px;
+}
+
+.added-items{
+    border: 2px solid red;
+}
+
+.total-products{
+    border: 2px solid blue;
 }
