@@ -17,7 +17,6 @@ const Home = () => {
       <div className="card-holder">
         {products.map((product) => (
         <Cards key={product.id} product={product} />
-
         ))}
       </div>
     </div>

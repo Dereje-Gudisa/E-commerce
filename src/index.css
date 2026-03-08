@@ -317,9 +317,54 @@ body{
 }
 
 .added-items{
-    border: 2px solid red;
+
 }
 
 .total-products{
     border: 2px solid blue;
+}
+/* Cart page */
+.save-delete-button{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.delete-button{
+    color: rgb(207, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.save-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pcs{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    width:350px;
+    height: auto;
+    margin: 15px;
+
 }

@@ -5,6 +5,12 @@ import Home from './Home.jsx';
 import Footer from './Footer.jsx';
 import About from './About.jsx';
 import Cart from './Cart.jsx';
+import Contact from './Contact.jsx';
+import BestSeller from './BestSeller.jsx';
+import CheckOut from './CheckOut.jsx';
+import Shop from './Shop.jsx';
+import SinglePage from './SinglePage.jsx';
+import NotFoundPage from './NotFoundPage.jsx';
 import {Routes, Route } from 'react-router-dom';
 import { CartProvider } from "./context/CartContext.jsx";
 
@@ -20,6 +26,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/bestSeller" element={<BestSeller />} />
+            <Route path="/checkOut" element={<CheckOut />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/singlePage" element={<SinglePage />} />
+            <Route path="/notFoundPage" element={<NotFoundPage />} />
           </Routes>
           <Footer />
         </CartProvider>

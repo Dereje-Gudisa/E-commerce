@@ -6,7 +6,7 @@ import { FaHeart } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
 import { CartContext } from "./context/CartContext";
 
-const Cards = ({product}) => {
+const Cards = ({product, showButton = true}) => {
 
   const { addToCart } = useContext(CartContext);
 
@@ -22,9 +22,9 @@ const Cards = ({product}) => {
           <span className="old-price">{`$ ${product.oldPrice}`}</span>
           <span className="new-price">{`$ ${product.newPrice}`} </span>
         </div>
-        <button className='add-to-cart' onClick={()=> {addToCart(product)}} >
+        {showButton && (<button className='add-to-cart' onClick={()=> {addToCart(product)}} >
           <FaShoppingCart className='cart-icon'/>Add to cart
-        </button><br />
+        </button>)}<br />
         
         <div className="bottom-icons-container">
           <button className="ratings">
