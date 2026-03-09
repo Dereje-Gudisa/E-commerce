@@ -359,12 +359,19 @@ body{
 
 .cart-item{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border: 1px solid gray;
-    width:350px;
+    width:100%;
     height: auto;
     margin: 15px;
+    border: 2px solid orange;
+}
 
+.cart-page-buttons{
+    border:2px solid green;
+}
+
+.item-container{
+    border: 2px solid black;
 }
