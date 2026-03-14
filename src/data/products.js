@@ -6,7 +6,8 @@ export const products = [
     oldPrice: "150",
     newPrice: "99.99",
     image: "product-1.png",
-    description: "High quality wireless headphones"
+    description: "High quality wireless headphones",
+    quantity: "1"
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const products = [
     oldPrice: "1200",
     newPrice: "999.99",
     image: "product-2.png",
-    description: "High quality wireless headphones"
+    description: "High quality wireless headphones",
+    quantity: "1"
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const products = [
     oldPrice: "80",
     newPrice: "49.99",
     image: "product-3.png",
-    description: "High quality wireless headphones"
+    description: "High quality wireless headphones",
+    quantity: "1"
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ export const products = [
     oldPrice: "2500",
     newPrice: "1999.99",
     image: "product-4.png",
-    description: "High quality wireless headphones"
+    description: "High quality wireless headphones",
+    quantity: "1"
   },
   {
     id: 5,
