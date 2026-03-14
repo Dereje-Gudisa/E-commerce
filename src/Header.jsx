@@ -2,11 +2,12 @@ import React, {useContext} from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./assets/logo.svg";
 import { CartContext } from './context/CartContext';
+import { FaHeart } from "react-icons/fa";
 import {Routes, Route, Link } from 'react-router-dom';
 import Cart from './Cart.jsx';
 
 const Header = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, wishList } = useContext(CartContext);
   return (
     <div className='header'>
         <div className='header-info'>
@@ -52,6 +53,16 @@ const Header = () => {
                 <FaShoppingCart className='top-cart-icon'/>
               </button>
               </Link>
+
+              <Link to="/SavedItem">
+              <button className="cart-button">
+                <div className="badge">
+                  {wishList.length}
+                </div>
+                <FaHeart className='wish-list-icon'/>
+              </button>
+              </Link>
+
             </div>
             <div className='sign-holder'>
              <button className="sign-btn sign-in"> sign In </button>

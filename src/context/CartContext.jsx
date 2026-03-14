@@ -7,21 +7,38 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const [wishList, setWishList] = useState([]);
     const addToCart = (product) => {
-    setCart([...cart, product]);
-
+      const existingCartItem = cart.find(item => item.id === product.id);
+      console.log(cart)
+      if(!existingCartItem){
+        setCart([...cart, product]);
+        console.log(product)
         console.log("1 item added to the cart")
         console.log(product.id)
+        console.log(product)
+      };    
+      
+        
     };
-
-    const addToWishList = (product) => {
-      setWishList([...wishList, product]) 
-
-      console.log(product.id)
-      console.log(product)
+//////////////////
+// there is more to it 
+    const addToWishList = (item) => {
+      
       console.log(wishList)
-      console.log("item added to the wish list")
-    };
+      console.log(item.id)
+      console.log(item)
+      const existingWishItem = wishList?.find(product => product.id === item.id);
 
+      if(!item){
+      setWishList([...wishList, item])
+      console.log("item added to the wish list")
+      console.log(wishList)
+      }
+      else{
+          console.log("item already exists")
+      }
+      
+    };
+///////////////////
     const updateQuantity = (id, change) => {
       setCart(
         prevCart => prevCart.map(item => 

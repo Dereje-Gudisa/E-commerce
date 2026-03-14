@@ -11,6 +11,7 @@ import CheckOut from './CheckOut.jsx';
 import Shop from './Shop.jsx';
 import SinglePage from './SinglePage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
+import SavedItem from './SavedItem.jsx';
 import {Routes, Route } from 'react-router-dom';
 import { CartProvider } from "./context/CartContext.jsx";
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/singlePage" element={<SinglePage />} />
             <Route path="/notFoundPage" element={<NotFoundPage />} />
+            <Route path="/savedItem" element={<SavedItem />} />
           </Routes>
           <Footer />
         </CartProvider>

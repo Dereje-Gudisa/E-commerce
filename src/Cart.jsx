@@ -8,7 +8,7 @@ import { ImCrying } from "react-icons/im";
 
 
 
-function Cart(product) {
+function Cart({product}) {
   const {cart, updateQuantity, removeItem, clearCart, addToWishList} = useContext(CartContext);
 
   function handleIncrease(itemId){
@@ -25,7 +25,7 @@ function Cart(product) {
   const handleClearCart = () => {
     clearCart();
   }
-
+  
 /*   const handleWishList = (product) => {
     addToWishList(product);
   } */
@@ -64,7 +64,7 @@ function Cart(product) {
                   <button className="increase-button" onClick={()=>handleIncrease(item.id)}>+</button>
                 </div>
                 <div className="save-delete-button">
-                  <button className="save-button" onClick={()=>{addToWishList(product)}}><FaHeart />Save</button> 
+                  <button className="save-button" onClick={()=>{addToWishList(item)}}><FaHeart />Save</button> 
                   <button className="delete-button" onClick={()=>handleDelete(item.id)}><RiDeleteBin6Line />Delete</button>
                 </div>
               </div>
