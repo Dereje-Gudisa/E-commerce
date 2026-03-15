@@ -22,7 +22,7 @@ const Cards = ({product, showButton = true}) => {
           <span className="old-price">{`$ ${product.oldPrice}`}</span>
           <span className="new-price">{`$ ${product.newPrice}`} </span>
         </div>
-        {showButton && (<button className='add-to-cart' onClick={()=> {addToCart(product),addToWishList(product)}} >
+        {showButton && (<button className='add-to-cart' onClick={()=> {addToCart(product)}} >
           <FaShoppingCart className='cart-icon'/>Add to cart
         </button>)}<br />
         

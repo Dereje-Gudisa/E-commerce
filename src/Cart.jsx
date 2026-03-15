@@ -1,14 +1,13 @@
 import Cards from "./Cards.jsx";
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext.jsx";
-import product from "./data/products.js";
+//import product from "./data/products.js";
 import { FaHeart } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ImCrying } from "react-icons/im";
 
 
-
-function Cart({product}) {
+function Cart() {
   const {cart, updateQuantity, removeItem, clearCart, addToWishList} = useContext(CartContext);
 
   function handleIncrease(itemId){
