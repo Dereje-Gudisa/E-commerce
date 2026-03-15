@@ -36,7 +36,7 @@ const Cards = ({product, showButton = true}) => {
           </button>
           <button className='wish-list shuffle'>
             <FaShuffle className='shuffle-icon'/>
-            <FaHeart className='wish-list-icon'/>
+            <FaHeart className="wish-list-icon save-button" onClick={()=>{addToWishList(product)}}/>
           </button>
         </div>
         

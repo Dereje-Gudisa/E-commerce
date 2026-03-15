@@ -309,7 +309,7 @@ body{
     border: 2px solid blue;
     text-align: center;
     display: flex;
-    width: 100%;
+    width: 97vw;
     justify-content: center;
     align-items: center;
     margin:20px;
@@ -394,4 +394,63 @@ body{
     font-size: 3rem;
     margin-left: 40px;
     margin-bottom: 10px;
+}
+
+/*saved wish lists page*/
+
+.remove-from-wish-list-button{
+    display: flex;
+    text-align: center;
+    color: white;
+    background-color: orange;
+    padding: 5px;
+    margin: 5px;
+
+}
+.saved-page-button{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wish-item-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 20px;
+    object-fit:cover;
+    overflow: hidden;
+    
+}
+
+.wish-list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.checkout{
+    border:2px solid red;
+    width: 30%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.saved-item{
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    border: 2px solid orange;
+    margin: 5px;
+}
+
+.wish-item-image{
+    width: 100px;
+    height: auto;
 }

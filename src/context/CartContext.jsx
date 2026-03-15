@@ -43,7 +43,7 @@ export const CartProvider = ({children}) => {
       if(!existingWishItem){
       setWishList([...wishList, item])
       console.log("item added to the wish list")
-      console.log(wishList)
+      console.log(wishList.length)
       }
       else{
           console.log("item already exists", item.id)
@@ -65,6 +65,12 @@ export const CartProvider = ({children}) => {
     const removeItem = (id) =>{
       setCart(prevCart => prevCart.filter(item => item.id !== id) );
     };
+    
+    const removeFromWishList = (id) =>{
+      setWishList(prevCart => prevCart.filter(item => item.id !== id) );
+      console.log(wishList.length)
+    };
+    
     const clearCart = () =>{
       setCart([]);
     };
@@ -72,7 +78,7 @@ export const CartProvider = ({children}) => {
 
   return (
     <CartContext.Provider value={{ 
-         cart, addToCart, updateQuantity, removeItem, clearCart, wishList, addToWishList
+         cart, addToCart, updateQuantity, removeItem, clearCart, wishList, addToWishList, removeFromWishList
     }}>
         {children}
     </CartContext.Provider>

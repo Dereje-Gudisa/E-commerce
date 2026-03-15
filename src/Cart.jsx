@@ -1,7 +1,6 @@
 import Cards from "./Cards.jsx";
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext.jsx";
-//import product from "./data/products.js";
 import { FaHeart } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ImCrying } from "react-icons/im";
@@ -24,34 +23,24 @@ function Cart() {
   const handleClearCart = () => {
     clearCart();
   }
-  
-/*   const handleWishList = (product) => {
-    addToWishList(product);
-  } */
-  
+
   return (
     
     <div className="cart-page">
       <div className="added-items">
         <h1>items</h1>
-        {cart.length === 0 ? (
-        <ImCrying className="crying-emoji"/>):(<>
-        <h1>Added items {cart.length}</h1>
-        <div className="clear-btn-container">
+         {cart.length === 0 ?(
+          <><ImCrying className="crying-emoji"/><p>Your Cart is empty</p></>
+        ) :(
+
+          <>
+         <h1>Added items {cart.length}</h1>
+         <div className="clear-btn-container">
           <button className="clear-cart-button" onClick={()=>handleClearCart()}>Clear Cart</button>
         </div>
-        </>
-        )
-
-        }
-         {cart.length === 0 ?(
-          <p>Your Cart is empty</p>
-        ) :(
-          <>
-        
          {cart.map((item) => (
+          ///////////////
           <div key={item.id} className="cart-item">
-              {JSON.stringify(item.id)}
             <div className="item-container">
               <img src={item.image} alt="product-img" />
               <h2>{item.name}</h2>
@@ -85,7 +74,7 @@ function Cart() {
               </div>
             </div>  
           </div>
-    
+          //////////////
         ))}
         
 
