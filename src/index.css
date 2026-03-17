@@ -434,14 +434,24 @@ body{
 }
 
 .checkout{
-    border:2px solid red;
     width: 30%;
     display:flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
 
 }
 
+.clear-wish-list{
+    color: white;
+    background-color: red;
+    padding: 5px;
+}
+.checkout-button{
+    color: white;
+    background-color: orange;
+    padding: 5px;
+}
 .saved-item{
     justify-content: center;
     align-items: center;
