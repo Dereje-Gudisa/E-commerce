@@ -7,11 +7,17 @@ import { TbHeartBrokenFilled } from "react-icons/tb";
 import { ImCrying } from "react-icons/im";
 
 const SavedItem = () => {
-    const {wishList, removeFromWishList} = useContext(CartContext);
+    const { wishList, removeFromWishList, clearWishList } = useContext(CartContext);
 
     const handleDelete = (itemId) => {
         removeFromWishList(itemId);
         console.log(itemId);
+    }
+
+    const handelClearWishList = ()=>{
+        clearWishList();
+        console.log();
+        console.log(wishList)
     }
 
   return (
@@ -41,7 +47,7 @@ const SavedItem = () => {
 
                 <div className="checkout">
                     <button className="checkout-button">Go to checkout</button>
-                    <button className="clear-wish-list">Empty Wish List</button>
+                    <button className="clear-wish-list"onClick={()=>handelClearWishList()}>Empty Wish List</button>
                 </div>
         </>
           )

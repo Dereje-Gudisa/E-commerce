@@ -4,10 +4,29 @@ import Logo from "./assets/logo.svg";
 import { CartContext } from './context/CartContext';
 import { FaHeart } from "react-icons/fa";
 import {Routes, Route, Link } from 'react-router-dom';
-import Cart from './Cart.jsx';
+import products from './data/products';
 
 const Header = () => {
-  const { cart, wishList } = useContext(CartContext);
+  const { cart, wishList, setSearch, setCategory, search, category  } = useContext(CartContext);
+  
+////////////////////
+  const handleSearch = (searchInput)=>{
+    setSearch(searchInput);
+  }
+
+  const handleCategory = (categoryInput)=>{
+    setCategory(categoryInput);
+  }
+
+  const filteredProducts = products.filter((product)=>{
+    const matchesSearch = product.title?.toLowerCase().includes((search || "").toLowerCase());
+    const matchesCategory = category === "all" || product.category === category;
+    console.log(matchesSearch);
+    return matchesCategory && matchesSearch
+  });
+
+  //////////// 
+                                      
   return (
     <div className='header'>
         <div className='header-info'>
@@ -32,8 +51,10 @@ const Header = () => {
           <img src={Logo} alt="LOGO" className='logo-image' />
 
           <div>
-            <input type="text" placeholder='Search Products...' className='search-field' />
-            <select name="catagory" id="" className='search-options'>
+            <input type="text" placeholder='Search Products...' className='search-field' onChange={(e) => handleSearch(e.target.value)}/>
+            <select name="catagory" id="" className='search-options' onChange={(e) => handleCategory(e.target.value) }>
+              <option value="all">All</option>
+              <option value="electronics">Electronics</option>
               <option value="food">Foods</option>
               <option value="accesories">Accesories</option>
               <option value="books">Books</option>
@@ -70,6 +91,23 @@ const Header = () => {
             </div>
           </div>
         </div>
+
+        <div>
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              
+            >
+              <h4>{product.title}</h4>
+              <p>Category: {product.category}</p>
+            </div>
+          ))
+        ) : (
+          <p>No products found</p>
+        )}
+      </div>
+      
     </div>
     
   )

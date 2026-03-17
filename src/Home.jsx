@@ -15,9 +15,12 @@ const Home = () => {
         <button className="items-track"> Top Selling</button>
       </div>
       <div className="card-holder">
-        {products.map((product) => (
+        {
+          products.map((product) => (
         <Cards key={product.id} product={product} />
+
         ))}
+      
       </div>
     </div>
   )

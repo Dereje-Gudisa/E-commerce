@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import products from '../data/products';
 
 export const CartContext = createContext();
 
@@ -6,7 +7,10 @@ export const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([]);
     const [wishList, setWishList] = useState([]);
-
+    const [search, setSearch] = useState("");
+    const [category, setCategory] = useState("all");
+    const [searchResult, setSearchResult] = useState([]);
+    
     const addToCart = (product) => {
       const existingCartItem = cart.find(item => item.id === product.id);
       console.log(cart)
@@ -21,8 +25,6 @@ export const CartProvider = ({children}) => {
       
         
     };
-//////////////////
-// there is more to it 
 
     const addToWishList = (item) => {
       
@@ -51,8 +53,7 @@ export const CartProvider = ({children}) => {
       console.log("Wishlist after:", wishList); //this shows old state due to closure
 
     };
-    
-///////////////////
+
     const updateQuantity = (id, change) => {
       setCart(
         prevCart => prevCart.map(item => 
@@ -75,10 +76,32 @@ export const CartProvider = ({children}) => {
       setCart([]);
     };
 
+    const clearWishList = ()=>{
+      setWishList([]);
+    }
+
+    // const setSearch = ()=>{
+    //   setSerach("")
+    // }
+
 
   return (
     <CartContext.Provider value={{ 
-         cart, addToCart, updateQuantity, removeItem, clearCart, wishList, addToWishList, removeFromWishList
+        cart,
+        addToCart,
+        updateQuantity,
+        removeItem,
+        clearCart,
+        wishList,
+        addToWishList,
+        removeFromWishList,
+        clearWishList,
+        search,
+        setSearch,
+        setCategory,
+        searchResult,
+        setSearchResult,
+        category
     }}>
         {children}
     </CartContext.Provider>
