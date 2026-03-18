@@ -80,10 +80,6 @@ export const CartProvider = ({children}) => {
       setWishList([]);
     }
 
-    // const setSearch = ()=>{
-    //   setSerach("")
-    // }
-
 
   return (
     <CartContext.Provider value={{ 

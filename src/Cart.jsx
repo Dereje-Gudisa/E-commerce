@@ -1,4 +1,3 @@
-import Cards from "./Cards.jsx";
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext.jsx";
 import { FaHeart } from "react-icons/fa";
@@ -12,6 +11,7 @@ function Cart() {
   function handleIncrease(itemId){
     updateQuantity(itemId, 1);
   }
+
   function handleDecrease(itemId){  
     updateQuantity(itemId, -1);
   }
@@ -39,7 +39,7 @@ function Cart() {
           <button className="clear-cart-button" onClick={()=>handleClearCart()}>Clear Cart</button>
         </div>
          {cart.map((item) => (
-          ///////////////
+          
           <div key={item.id} className="cart-item">
             <div className="item-container">
               <img src={item.image} alt="product-img" />
