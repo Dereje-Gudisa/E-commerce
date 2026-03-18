@@ -466,3 +466,11 @@ body{
     width: 100px;
     height: auto;
 }
+
+.search-result{
+    
+    width: 400px;
+    height: 100px;
+    padding: 5px;
+}
+

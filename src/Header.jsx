@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./assets/logo.svg";
 import { CartContext } from './context/CartContext';
@@ -18,15 +18,24 @@ const Header = () => {
     setCategory(categoryInput);
   }
 
+  const handleSelect = (title)=>{
+    console.log(title);
+    console.log("title");
+    setSearch(title);
+    setIsFocused(false);
+
+  }
+
+  const [isFocused, setIsFocused] = useState(false);
+
+
   const filteredProducts = products.filter((product)=>{
-    const matchesSearch = product.title?.toLowerCase().includes((search || "").toLowerCase());
-    const matchesCategory = category === "all" || product.category === category;
-    console.log(matchesSearch);
+    const matchesSearch = product.name?.toLowerCase().includes((search || "").toLowerCase());
+    const matchesCategory = product.category.toLowerCase() === category.toLowerCase() || category === "all";
+
     return matchesCategory && matchesSearch
   });
-
-  //////////// 
-                                      
+                      
   return (
     <div className='header'>
         <div className='header-info'>
@@ -51,16 +60,30 @@ const Header = () => {
           <img src={Logo} alt="LOGO" className='logo-image' />
 
           <div>
-            <input type="text" placeholder='Search Products...' className='search-field' onChange={(e) => handleSearch(e.target.value)}/>
+            <input type="text" placeholder='Search Products...' value={search} className='search-field' onFocus={()=>{setIsFocused(true)}} onBlur={()=>{setIsFocused(false)}} onChange={(e) => handleSearch(e.target.value)}/>
             <select name="catagory" id="" className='search-options' onChange={(e) => handleCategory(e.target.value) }>
               <option value="all">All</option>
               <option value="electronics">Electronics</option>
-              <option value="food">Foods</option>
-              <option value="accesories">Accesories</option>
+              <option value="foods">Foods</option>
+              <option value="accessories">Accesories</option>
               <option value="books">Books</option>
-              <option value="clothing">Clothing</option>
+              <option value="clothings">Clothing</option>
             </select>
             <button className='search-button'>Search</button>
+            <div className="search-result">
+              {isFocused && filteredProducts.length > 0 ? (
+                filteredProducts.slice(0, 4).map((product) => (
+
+                  <div key={product.id}>
+                    <h4 onClick={()=>handleSelect(product.name)} style={{cursor: "pointer"}}>{product.name}</h4>
+                  </div>
+                  
+                  ))
+                ) : ( isFocused &&
+                <p>No products found</p>
+                )}
+                
+          </div>
           </div>
 
           <div className='sign-ins'>
@@ -91,22 +114,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
-        <div>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              
-            >
-              <h4>{product.title}</h4>
-              <p>Category: {product.category}</p>
-            </div>
-          ))
-        ) : (
-          <p>No products found</p>
-        )}
-      </div>
       
     </div>
     
