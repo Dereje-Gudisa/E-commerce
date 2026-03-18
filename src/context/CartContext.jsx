@@ -48,11 +48,10 @@ export const CartProvider = ({children}) => {
       else{
           console.log("item already exists", item.id)
       }
-      console.log("Wishlist after:", wishList); //this shows old state due to closure
+      console.log("Wishlist after:", wishList);
 
     };
     
-///////////////////
     const updateQuantity = (id, change) => {
       setCart(
         prevCart => prevCart.map(item => 
