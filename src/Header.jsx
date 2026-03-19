@@ -12,19 +12,29 @@ const Header = () => {
 ////////////////////
   const handleSearch = (searchInput)=>{
     setSearch(searchInput);
+    console.log("searching for: " + searchInput);
+    console.log(search);
+    console.log(searchInput);
+  }
+
+  const handleSearching = (input)=>{
+    console.log("searching for: " + input);
+    console.log(search);
+    console.log(JSON.stringify(search));
+    console.log(input);
   }
 
   const handleCategory = (categoryInput)=>{
     setCategory(categoryInput);
   }
 
-  const handleSelect = (title)=>{
-    console.log(title);
-    console.log("title");
-    setSearch(title);
+  const handleSelect = (name)=>{
+    console.log(name + " selected");
     setIsFocused(false);
-
+    setSearch(name);
   }
+
+
 
   const [isFocused, setIsFocused] = useState(false);
 
@@ -69,13 +79,13 @@ const Header = () => {
               <option value="books">Books</option>
               <option value="clothings">Clothing</option>
             </select>
-            <button className='search-button'>Search</button>
+            <button className='search-button' onClick={() => handleSearching(search)}>Search</button>
             <div className="search-result">
               {isFocused && filteredProducts.length > 0 ? (
                 filteredProducts.slice(0, 4).map((product) => (
 
-                  <div key={product.id}>
-                    <h4 onClick={()=>handleSelect(product.name)} style={{cursor: "pointer"}}>{product.name}</h4>
+                  <div key={product.id} className="matched-lists" onMouseDown={()=>handleSelect(product.name)}>
+                    <h4>{product.name}</h4>
                   </div>
                   
                   ))

@@ -468,9 +468,22 @@ body{
 }
 
 .search-result{
-    
+
     width: 400px;
     height: 100px;
     padding: 5px;
+    cursor: pointer;
 }
 
+.matched-lists{
+    background-color: gray;
+    color: white;
+    margin: 5px;
+    padding:5px;
+
+}
+.matched-lists :hover{
+    background-color: orange;
+    color: white;
+
+}
