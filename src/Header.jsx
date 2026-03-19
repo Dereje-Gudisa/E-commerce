@@ -1,15 +1,15 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState} from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./assets/logo.svg";
 import { CartContext } from './context/CartContext';
 import { FaHeart } from "react-icons/fa";
 import {Routes, Route, Link } from 'react-router-dom';
 import products from './data/products';
+import SearchResultPage from './SearchResultPage.jsx';
 
 const Header = () => {
-  const { cart, wishList, setSearch, setCategory, search, category  } = useContext(CartContext);
+  const { cart, wishList, setSearch, setCategory, search, category, filteredProducts  } = useContext(CartContext);
   
-////////////////////
   const handleSearch = (searchInput)=>{
     setSearch(searchInput);
     console.log("searching for: " + searchInput);
@@ -29,23 +29,26 @@ const Header = () => {
   }
 
   const handleSelect = (name)=>{
+
     console.log(name + " selected");
     setIsFocused(false);
     setSearch(name);
-  }
 
+  }
 
 
   const [isFocused, setIsFocused] = useState(false);
 
 
-  const filteredProducts = products.filter((product)=>{
+/*   const filteredProducts = products.filter((product)=>{
     const matchesSearch = product.name?.toLowerCase().includes((search || "").toLowerCase());
     const matchesCategory = product.category.toLowerCase() === category.toLowerCase() || category === "all";
 
     return matchesCategory && matchesSearch
   });
-                      
+
+  console.log("filtered products: " + JSON.stringify(filteredProducts)); */
+
   return (
     <div className='header'>
         <div className='header-info'>
@@ -79,7 +82,9 @@ const Header = () => {
               <option value="books">Books</option>
               <option value="clothings">Clothing</option>
             </select>
-            <button className='search-button' onClick={() => handleSearching(search)}>Search</button>
+            <Link to="/searchResultPage">
+              <button className='search-button' onClick={() => handleSearching(search)}>Search</button>
+            </Link>
             <div className="search-result">
               {isFocused && filteredProducts.length > 0 ? (
                 filteredProducts.slice(0, 4).map((product) => (

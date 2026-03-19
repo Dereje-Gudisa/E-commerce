@@ -80,6 +80,13 @@ export const CartProvider = ({children}) => {
       setWishList([]);
     }
 
+    const filteredProducts = products.filter((product)=>{
+        const matchesSearch = product.name?.toLowerCase().includes((search || "").toLowerCase());
+        const matchesCategory = product.category.toLowerCase() === category.toLowerCase() || category === "all";
+    
+        return matchesCategory && matchesSearch
+      });
+    //console.log("filtered products: " + JSON.stringify(filteredProducts));
 
   return (
     <CartContext.Provider value={{ 
@@ -97,7 +104,8 @@ export const CartProvider = ({children}) => {
         setCategory,
         searchResult,
         setSearchResult,
-        category
+        category,
+        filteredProducts
     }}>
         {children}
     </CartContext.Provider>
