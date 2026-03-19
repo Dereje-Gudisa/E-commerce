@@ -39,16 +39,6 @@ const Header = () => {
 
   const [isFocused, setIsFocused] = useState(false);
 
-
-/*   const filteredProducts = products.filter((product)=>{
-    const matchesSearch = product.name?.toLowerCase().includes((search || "").toLowerCase());
-    const matchesCategory = product.category.toLowerCase() === category.toLowerCase() || category === "all";
-
-    return matchesCategory && matchesSearch
-  });
-
-  console.log("filtered products: " + JSON.stringify(filteredProducts)); */
-
   return (
     <div className='header'>
         <div className='header-info'>
@@ -59,7 +49,12 @@ const Header = () => {
           </div>
             <span>call us: +251999999999   </span>
           <div>
-            <span>ETB   </span>
+            <span>
+              <select name="curruncies" className="curruncies">
+                <option value="birr" id="">ETB</option>
+                <option value="dollar" id="">US</option>
+              </select>
+              </span>
             <select name="languages" id="" className='languages'>
               <option value="english">English</option>
               <option value="amharic">Amharic</option>

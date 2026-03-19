@@ -15,7 +15,13 @@ body{
 /* header */
 
 .app{
-    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content{
+    flex: 1;
 }
 
 .header{
@@ -305,6 +311,24 @@ body{
     color: orange;
 }
 
+.informations{
+    display: flex;
+    flex-direction: ;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+.information-childeren{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 10px;
+}
+
 /* card */
 
 .cart-page{
@@ -319,6 +343,10 @@ body{
 }
 
 .added-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
 
@@ -393,8 +421,8 @@ body{
 }
 
 .crying-emoji{
+    display: flex;
     font-size: 3rem;
-    margin-left: 40px;
     margin-bottom: 10px;
 }
 
@@ -414,6 +442,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid blue;
 }
 
 .wish-item-container{
@@ -432,7 +461,10 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    text-align: center;
+    width: 97vw;
+    margin:20px;
+    padding: 20px;
 }
 
 .checkout{
@@ -487,3 +519,71 @@ body{
     color: white;
 
 }
+
+.no-result-text{
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    flex-direction: column;
+    padding: 10px;
+}
+.search-page-container{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 97vw;
+    margin:20px;
+    padding: 20px;
+}
+
+.bestSeller-page{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 97vw;
+    margin:20px;
+    padding: 20px;
+}
+
+.checkout-page{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 97vw;
+    margin:20px;
+    padding: 20px;
+}
+
+.notFound-page{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 97vw;
+    margin:20px;
+    padding: 20px;
+}
+
+.contact-page{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 97vw;
+    margin:20px;
+    padding: 20px;
+}
+

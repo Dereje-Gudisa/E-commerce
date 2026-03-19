@@ -25,18 +25,22 @@ function App() {
         <CartProvider>
           <Header />
           <Nav />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/bestSeller" element={<BestSeller />} />
-            <Route path="/checkOut" element={<CheckOut />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/singlePage" element={<SinglePage />} />
-            <Route path="/notFoundPage" element={<NotFoundPage />} />
-            <Route path="/savedItem" element={<SavedItem />} />
-            <Route path="/searchResultPage" element={<SearchResultPage />} />
-          </Routes>
+          
+            <div className="main-content">
+              <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/bestSeller" element={<BestSeller />} />
+              <Route path="/checkOut" element={<CheckOut />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/singlePage" element={<SinglePage />} />
+              <Route path="/notFoundPage" element={<NotFoundPage />} />
+              <Route path="/savedItem" element={<SavedItem />} />
+              <Route path="/searchResultPage" element={<SearchResultPage />} />
+            </Routes>
+            </div>
+          
           <Footer />
         </CartProvider>
       </div>
