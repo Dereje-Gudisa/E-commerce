@@ -13,6 +13,8 @@ import SinglePage from './SinglePage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import SavedItem from './SavedItem.jsx';
 import SearchResultPage from './SearchResultPage.jsx';
+import SignUp from './SignUp.jsx';
+import SignInPage from './SignInPage.jsx';
 import {Routes, Route } from 'react-router-dom';
 import { CartProvider } from "./context/CartContext.jsx";
 
@@ -38,6 +40,8 @@ function App() {
               <Route path="/notFoundPage" element={<NotFoundPage />} />
               <Route path="/savedItem" element={<SavedItem />} />
               <Route path="/searchResultPage" element={<SearchResultPage />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="/signInPage" element={<SignInPage />} />
             </Routes>
             </div>
           

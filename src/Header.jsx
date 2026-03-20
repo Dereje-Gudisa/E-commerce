@@ -119,8 +119,13 @@ const Header = () => {
 
             </div>
             <div className='sign-holder'>
-             <button className="sign-btn sign-in"> sign In </button>
-             <button className="sign-btn sign-up">sign Up</button>
+              <Link to="/signInPage">
+                <button className="sign-btn sign-in"> sign In </button>
+              </Link>
+              <Link to="/signUp">
+                <button className="sign-btn sign-up">sign Up</button>
+              </Link>
+
             </div>
           </div>
         </div>

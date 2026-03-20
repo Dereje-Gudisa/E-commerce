@@ -587,3 +587,25 @@ body{
     padding: 20px;
 }
 
+.sign-in-page{
+    border: 2px solid blue;
+    text-align: center;
+    display: flex;
+    width: 97vw;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    padding: 20px;
+}
+
+.sign-up-page{
+    border: 2px solid blue;
+    text-align: center;
+    display: flex;
+    width: 97vw;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    padding: 20px;
+}
+

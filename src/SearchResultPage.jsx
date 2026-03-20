@@ -14,7 +14,6 @@ const SearchResultPage = () => {
             {search && <p>Showing results for: {filteredProducts.length} products</p>}
             <div className="card-holder"> 
                 {search && filteredProducts.length > 0 ? (
-                    
                     filteredProducts.map((product) => (
                         <Cards key={product.id} product={product} showButton={true} />
                     ))
