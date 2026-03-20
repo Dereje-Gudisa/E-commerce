@@ -4,22 +4,29 @@ const SignInPage = () => {
   return (
     <>
       <div className='sign-in-page'>
-        <h1>Welcome back</h1>
-        <p>please enter you details.</p>
+        <div className="sign-in-header">
+          <h2>Log In</h2>
+        </div>
         <div className="email-password-container">
           <input type="text" className='sign-in-email-input' placeholder='Email' id="email" />
 
           <input type="text" className='sign-in-password-input' placeholder='Password' id="password" />
         </div>
 
-        <input type="checkbox" name="remember" id="remember" />
-        <label htmlFor="remember">Remember me</label>
+        <div className="remember-me-container">
+          <span className='remember-chekbox'>
+            <input type="checkbox" name="remember" id="remember" />
+            <label htmlFor="remember">Remember me</label>
+          </span>
+          <a href="/forgotPassword">forgot password</a>
+        </div>
 
-        <a href="/forgotPassword">forgot password</a><br />
-
-        <button className='sign-in-btn'>Log In</button><br />
-        <label htmlFor="button">Don't have an account? </label>
-        <a href="/signUp">Sign Up</a>
+        <button className='sign-in-button'>Log In</button><br />
+        <label htmlFor="button">
+          Don't have an account? 
+          <a href="/signUp" className='sign-up-link'>Sign Up</a>
+        </label>
+        
       </div>
     </>
     

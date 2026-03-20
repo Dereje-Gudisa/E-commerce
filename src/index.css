@@ -588,9 +588,10 @@ body{
 }
 
 .sign-in-page{
-    border: 2px solid blue;
+    border: 2px solid orange;
     text-align: center;
     display: flex;
+    flex-direction: column;
     width: 97vw;
     justify-content: center;
     align-items: center;
@@ -599,14 +600,16 @@ body{
 }
 
 .sign-up-page{
-    border: 2px solid blue;
+    border: 2px solid orange;
     text-align: center;
     display: flex;
+    flex-direction: column;
     width: 97vw;
     justify-content: center;
     align-items: center;
     margin:20px;
     padding: 20px;
+    border: 2px solid orange;
 }
 
 .email-password-container{
@@ -614,8 +617,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: auto;
+    width: 600px;
+    height: auto;   
     border: 1px solid gray;
     padding: 20px;
     border-radius: 10px;
@@ -627,4 +630,50 @@ body{
     margin: 10px 0px;
     padding: 10px;
     border: 1px solid orange;
+}
+
+.sign-up-link{
+    margin-top: 10px;
+    color: orange;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.remember-me-container{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.remember-chekbox{
+    display: flex;
+    padding: 5px;
+    width: 140px;
+    justify-content: space-between;
+}
+
+.sign-in-button{
+    background-color: orange;
+    color: white;
+    border: none;
+    width: 20%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-container{
+    display: flex;
+    padding: 10px;
+    width: 140px;
+    justify-content:space-between;
+    width:220px;
+}
+
+.sign-in-header{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: orange;
 }
