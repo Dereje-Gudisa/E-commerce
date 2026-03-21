@@ -7,9 +7,8 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0px;
+    overflow-x: hidden;
 }
 
 /* header */
@@ -93,8 +92,6 @@ body{
 
 .sign-btn{
     border:none;
-    width: 100px;
-    height: 30px;
 }
 
 .sign-up{
@@ -102,16 +99,24 @@ body{
     height: 100%;
     border-radius: 30px;
     color: white;
+    width: 90px;
+    height: 35px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .sign-holder{
     border:1px solid gray;
     width: 160px;
-    height: 40px;
+    height: 50px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     border-radius: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    padding: 10px;
+    
 }
 
 .sign-ins{
@@ -335,10 +340,9 @@ body{
     border: 2px solid blue;
     text-align: center;
     display: flex;
-    width: 97vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    margin:20px;
     padding: 20px;
 }
 
@@ -462,8 +466,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 97vw;
-    margin:20px;
+    width: 100%;
     padding: 20px;
 }
 
@@ -534,8 +537,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 97vw;
-    margin:20px;
+    width: 100%;
     padding: 20px;
 }
 
@@ -546,8 +548,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 97vw;
-    margin:20px;
+    width: 100%;
     padding: 20px;
 }
 
@@ -558,8 +559,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 97vw;
-    margin:20px;
+    width: 100%;
     padding: 20px;
 }
 
@@ -570,8 +570,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 97vw;
-    margin:20px;
+    width: 100%;
     padding: 20px;
 }
 
@@ -582,8 +581,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 97vw;
-    margin:20px;
+    width: 100%;
     padding: 20px;
 }
 
@@ -592,10 +590,9 @@ body{
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 97vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    margin:20px;
     padding: 20px;
 }
 
@@ -604,10 +601,9 @@ body{
     text-align: center;
     display: flex;
     flex-direction: column;
-    width: 97vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    margin:20px;
     padding: 20px;
     border: 2px solid orange;
 }
