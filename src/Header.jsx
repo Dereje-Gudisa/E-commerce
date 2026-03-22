@@ -3,12 +3,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./assets/logo.svg";
 import { CartContext } from './context/CartContext';
 import { FaHeart } from "react-icons/fa";
-import {Routes, Route, Link } from 'react-router-dom';
-import products from './data/products';
-import SearchResultPage from './SearchResultPage.jsx';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const { cart, wishList, setSearch, setCategory, search, category, filteredProducts  } = useContext(CartContext);
+  const { cart, wishList, setSearch, setCategory, search, filteredProducts  } = useContext(CartContext);
   
   const handleSearch = (searchInput)=>{
     setSearch(searchInput);
