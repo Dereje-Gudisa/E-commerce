@@ -232,13 +232,25 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgb(221, 144, 0) ;
+    background-color:orange; ;
     width: 150px;
     padding: 8px;
     border-radius: 20px;
     color: white;
     margin-top: 10px;
 
+}
+
+.add-to-cart:hover{
+    background-color:rgb(215, 140, 1) ;
+    width: 155px;
+    height: 40px;
+}
+
+.add-to-cart:focus{
+    width: 150px;
+    height: 40px;
+    outline: none;
 }
 
 .bottom-icons-container{

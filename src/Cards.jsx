@@ -12,7 +12,7 @@ const Cards = ({product, showButton = true}) => {
 
   return (
 
-    <div className='card'>
+    <div className='card'>   
       <div className="image-container">
         <img src={product.image} alt="product"/>
       </div>

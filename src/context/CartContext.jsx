@@ -1,15 +1,43 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import products from '../data/products';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState([]);
-    const [wishList, setWishList] = useState([]);
-    const [search, setSearch] = useState("");
+    const [cart, setCart] = useState(() => {
+      try {
+        const storedCart = localStorage.getItem('cart');
+        return storedCart ? JSON.parse(storedCart) : [];
+      } catch (error) {
+        console.error('Error loading cart from localStorage:', error);
+        return [];
+      }
+    });
+
+    const [wishList, setWishList] = useState(() => {
+      try {
+        const storedWishList = localStorage.getItem('wishList');
+        return storedWishList ? JSON.parse(storedWishList) : [];
+      } catch (error) {
+        console.error('Error loading wish list from localStorage:', error);
+        return [];
+      }
+    });
+
+    const [search, setSearch] = useState(() => {
+      try {
+        const storedSearch = sessionStorage.getItem('search');
+        return storedSearch ? JSON.parse(storedSearch) : "";
+      } catch (error) {
+        console.error('Error loading search from sessionStorage:', error);
+        return "";
+      }
+    });
+
     const [category, setCategory] = useState("all");
     const [searchResult, setSearchResult] = useState([]);
+    
     
     const addToCart = (product) => {
       const existingCartItem = cart.find(item => item.id === product.id);
@@ -87,6 +115,24 @@ export const CartProvider = ({children}) => {
         return matchesCategory && matchesSearch
       });
     //console.log("filtered products: " + JSON.stringify(filteredProducts));
+
+  // Save cart to local storage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } catch (error) {
+      console.error('Error saving cart to localStorage:', error);
+    }
+  }, [cart]);
+
+  // Save wish list to local storage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('wishList', JSON.stringify(wishList));
+    } catch (error) {
+      console.error('Error saving wishList to localStorage:', error);
+    }
+  }, [wishList]);
 
   return (
     <CartContext.Provider value={{ 

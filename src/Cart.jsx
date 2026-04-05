@@ -73,11 +73,27 @@ function Cart() {
                 <button className="clear-button">Clear</button>
               </div>
             </div>  
+            
           </div>
+          
         ))}
         
 
         </>)}
+
+          <div className="prices-list total-products">
+            <h2 className="product-price">Product: ${}</h2>
+            <h2 className="discount">Discount:  $0 </h2>
+            <h2 className="tax">Tax: ${}</h2>
+            <h2 className="product-price">Service Fee: ${}</h2>
+            <h2 className="coupon">Coupon: $0</h2>
+            <h1 className="total-price">Total Price: $2000</h1>
+          </div>
+
+          <div className="checkout">
+            <button className="checkout-button">Go to checkout</button>
+            <button className="clear-button">Clear</button>
+          </div>
       </div>
       
 
