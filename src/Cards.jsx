@@ -1,14 +1,49 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Routes, Route } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
-import { RiStarSLine } from "react-icons/ri";
-import { FaHeart } from "react-icons/fa";
+import { RiStarSLine, RiStarFill } from "react-icons/ri";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
 import { CartContext } from "./context/CartContext";
 
 const Cards = ({product, showButton = true}) => {
 
-  const { addToCart, addToWishList } = useContext(CartContext);
+  const { addToCart, addToWishList, removeFromWishList, wishList } = useContext(CartContext);
+
+  // Check if product is in wishlist
+  const isInWishlist = wishList.some(item => item.id === product.id);
+
+  // Rating state - get from localStorage or default to product rating or 0
+  const [rating, setRating] = useState(() => {
+    const storedRatings = JSON.parse(localStorage.getItem('productRatings') || '{}');
+    return storedRatings[product.id] || (product.rating || 0);
+  });
+
+  const [hoverRating, setHoverRating] = useState(0);
+
+  const handleWishlistToggle = () => {
+    if (isInWishlist) {
+      removeFromWishList(product.id);
+    } else {
+      addToWishList(product);
+    }
+  };
+
+  const handleRatingClick = (newRating) => {
+    setRating(newRating);
+    // Store rating in localStorage
+    const storedRatings = JSON.parse(localStorage.getItem('productRatings') || '{}');
+    storedRatings[product.id] = newRating;
+    localStorage.setItem('productRatings', JSON.stringify(storedRatings));
+  };
+
+  const handleRatingHover = (ratingValue) => {
+    setHoverRating(ratingValue);
+  };
+
+  const handleRatingLeave = () => {
+    setHoverRating(0);
+  };
 
   return (
 
@@ -27,16 +62,29 @@ const Cards = ({product, showButton = true}) => {
         </button>)}<br />
         
         <div className="bottom-icons-container">
-          <button className="ratings">
-          <RiStarSLine />
-          <RiStarSLine />
-          <RiStarSLine />
-          <RiStarSLine />
-          <RiStarSLine />
-          </button>
+          <div className="ratings" onMouseLeave={handleRatingLeave}>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span
+                key={star}
+                onClick={() => handleRatingClick(star)}
+                onMouseEnter={() => handleRatingHover(star)}
+                style={{ cursor: 'pointer' }}
+              >
+                {star <= (hoverRating || rating) ? (
+                  <RiStarFill style={{ color: 'orange' }} />
+                ) : (
+                  <RiStarSLine style={{ color: '#ddd' }} />
+                )}
+              </span>
+            ))}
+          </div>
           <button className='wish-list shuffle'>
             <FaShuffle className='shuffle-icon'/>
-            <FaHeart className="wish-list-icon save-button" onClick={()=>{addToWishList(product)}}/>
+            {isInWishlist ? (
+              <FaHeart className="wish-list-icon saved" onClick={handleWishlistToggle}/>
+            ) : (
+              <FaRegHeart className="wish-list-icon" onClick={handleWishlistToggle}/>
+            )}
           </button>
         </div>
         
