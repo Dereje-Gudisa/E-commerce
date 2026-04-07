@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from './Header.jsx';
 import Nav from './Nav.jsx';
+import Sidebar from './Sidebar.jsx';
 import Home from './Home.jsx';
 import Footer from './Footer.jsx';
 import About from './About.jsx';
@@ -20,14 +21,16 @@ import { CartProvider } from "./context/CartContext.jsx";
 
 
 function App() {
-  
+
   return (
     <>
       <div className='app'>
         <CartProvider>
           <Header />
           <Nav />
-          
+          <Sidebar />
+
+          <div className="content-wrapper">
             <div className="main-content">
               <Routes>
               <Route path="/" element={<Home />} />
@@ -44,7 +47,8 @@ function App() {
               <Route path="/signInPage" element={<SignInPage />} />
             </Routes>
             </div>
-          
+          </div>
+
           <Footer />
         </CartProvider>
       </div>
