@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from "react";
+import { Link } from 'react-router-dom';
 import { CartContext } from "./context/CartContext.jsx";
 import { FaHeart } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -45,8 +46,8 @@ const SavedItem = () => {
             }
 
                 <div className="checkout">
-                    <button className="checkout-button">Go to checkout</button>
-                    <button className="clear-wish-list"onClick={()=>handelClearWishList()}>Empty Wish List</button>
+                    <Link to="/checkOut" className="checkout-button checkout-link">Go to checkout</Link>
+                    <button className="clear-wish-list" onClick={()=>handelClearWishList()}>Empty Wish List</button>
                 </div>
         </>
           )

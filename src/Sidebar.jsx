@@ -15,15 +15,20 @@ const Sidebar = () => {
 
   return (
     <>
-      <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle sidebar">
-        {isSidebarOpen ? <FaTimes /> : <FaBars />}
-      </button>
+      {!isSidebarOpen && (
+        <button className="sidebar-toggle" onClick={toggleSidebar} aria-label="Toggle sidebar">
+          <FaBars />
+        </button>
+      )}
 
       {isSidebarOpen && <div className="sidebar-overlay" onClick={closeSidebar}></div>}
 
       <div className={`sidebar ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
           <h3>Categories</h3>
+          <button className="sidebar-close" onClick={closeSidebar} aria-label="Close sidebar">
+            <FaTimes />
+          </button>
         </div>
         <div className="sidebar-menu">
           <Link to="/shop?category=electronics" className="sidebar-link" onClick={closeSidebar}>

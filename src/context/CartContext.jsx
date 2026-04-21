@@ -41,17 +41,14 @@ export const CartProvider = ({children}) => {
     
     const addToCart = (product) => {
       const existingCartItem = cart.find(item => item.id === product.id);
-      console.log(cart)
 
-      if(!existingCartItem){
-        setCart([...cart, product]);
-        console.log(product)
-        console.log("1 item added to the cart")
-        console.log(product.id)
-        console.log(product)
-      };    
-      
-        
+      if (!existingCartItem) {
+        const productToAdd = {
+          ...product,
+          quantity: 1,
+        };
+        setCart(prevCart => [...prevCart, productToAdd]);
+      }
     };
 
     const addToWishList = (item) => {
@@ -84,11 +81,15 @@ export const CartProvider = ({children}) => {
 
     const updateQuantity = (id, change) => {
       setCart(
-        prevCart => prevCart.map(item => 
-                    item.id === id ? {...item, quantity: Math.max(1,(item.quantity || 1)+ change)}
-                    :item )
+        prevCart => prevCart.map(item => {
+          if (item.id !== id) return item;
+          const currentQuantity = Number(item.quantity) || 1;
+          return {
+            ...item,
+            quantity: Math.max(1, currentQuantity + change),
+          };
+        })
       );
-      console.log(cart)  
     };
 
     const removeItem = (id) =>{

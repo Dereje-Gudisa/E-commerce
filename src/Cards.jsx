@@ -1,5 +1,4 @@
 import React, {useContext, useState} from 'react';
-import {Routes, Route } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { RiStarSLine, RiStarFill } from "react-icons/ri";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -51,7 +50,7 @@ const Cards = ({product, showButton = true}) => {
       <div className="image-container">
         <img src={product.image} alt="product"/>
       </div>
-        <p className='item-class'>{product.catagory}</p>
+        <p className='item-class'>{product.category}</p>
         <h1 className='item-name'>{product.name}</h1>
         <div>
           <span className="old-price">{`$ ${product.oldPrice}`}</span>
