@@ -9,6 +9,7 @@ const app = express();
 // Middleware
 app.use(express.json()); // Allows parsing of JSON request bodies
 app.use(cors());        // Allows your frontend to talk to your backend
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB Cloud successfully!'))
@@ -16,6 +17,9 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('X Database connection error:');
     console.error(err.message);
   });
+
+//routes
+app.use('/api/auth', require('./routes/authRoutes'));
 
 // Basic Route
 app.get('/', (req, res) => {
