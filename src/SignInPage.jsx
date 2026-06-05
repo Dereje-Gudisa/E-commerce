@@ -1,6 +1,40 @@
 import React from 'react'
+import { useState } from 'react'
 
 const SignInPage = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [logInMessage, setLogInMessage] = useState('');
+
+  const handleSignIn = async (e)=>{
+    e.preventDefault();
+    
+    try{
+      console.log("hey")
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok){
+        console.log('ok');
+        setLogInMessage(`Success! Welcome back.`);
+        console.log("Logged in user details:", data);
+      } else { setLogInMessage(`❌ Error: ${data.message}`)}
+
+    } catch(error){
+        setLogInMessage(error.message);
+        console.log(error)
+    }
+
+  }
+
   return (
     <>
       <div className='sign-in-page'>
@@ -8,9 +42,9 @@ const SignInPage = () => {
           <h2>Log In</h2>
         </div>
         <div className="email-password-container">
-          <input type="text" className='sign-in-email-input' placeholder='Email' id="email" />
+          <input type="text" className='sign-in-email-input' placeholder='Email' id="email" value = {email} onChange={(e)=> setEmail(e.target.value)}/>
 
-          <input type="text" className='sign-in-password-input' placeholder='Password' id="password" />
+          <input type="text" className='sign-in-password-input' placeholder='Password' id="password" value = {password} onChange={(e)=> setPassword(e.target.value)}/>
         </div>
 
         <div className="remember-me-container">
@@ -21,12 +55,12 @@ const SignInPage = () => {
           <a href="/forgotPassword">forgot password</a>
         </div>
 
-        <button className='sign-in-button'>Log In</button><br />
+        <button className='sign-in-button' onClick={handleSignIn}>Log In</button><br />
         <label htmlFor="button">
           Don't have an account? 
           <a href="/signUp" className='sign-up-link'>Sign Up</a>
         </label>
-        
+        <p className="feedback-message">{logInMessage}</p>
       </div>
     </>
     
