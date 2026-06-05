@@ -23,9 +23,13 @@ const SignInPage = () => {
       const data = await response.json();
 
       if (response.ok){
-        console.log('ok');
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user))
+        console.log('token securely saved');
+
         setLogInMessage(`Success! Welcome back.`);
         console.log("Logged in user details:", data);
+        
       } else { setLogInMessage(`❌ Error: ${data.message}`)}
 
     } catch(error){

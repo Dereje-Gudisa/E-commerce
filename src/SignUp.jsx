@@ -28,9 +28,12 @@ const SignUp = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Success (Status code 200-299)
+
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user))
+        console.log('sign up token securely saved');
         setMessage(`🎉 Success! Welcome ${data.user.name}.`);
-        // Here you would typically clear the inputs or navigate the user to the Sign-In page
+
       } else {
         // Error handling (e.g., User already exists)
         setMessage(`❌ Error: ${data.message}`);
