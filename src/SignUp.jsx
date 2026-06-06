@@ -10,13 +10,15 @@ const SignUp = () => {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
 
+  const API_BASE_URL = 'https://ecommerce-orpin-kappa-83.vercel.app';
+
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     console.log("on submit clicked")
 
     try {
       // 1. Send the data to your local backend server API
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Tells the backend we are sending JSON data
