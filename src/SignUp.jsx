@@ -26,7 +26,7 @@ const SignUp = () => {
         body: JSON.stringify({ name, email, password, phone }), // Converts JS object to JSON string
       });
 
-      // 2. Parse the receipt sent back by the backend
+      // 2. Parse the receipt sent back  by the backend
       const data = await response.json();
 
       if (response.ok) {
