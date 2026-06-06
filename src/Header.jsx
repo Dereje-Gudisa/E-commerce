@@ -1,13 +1,15 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import Logo from "./assets/logo.svg";
 import { CartContext } from './context/CartContext';
 import { FaHeart } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { cart, wishList, setSearch, setCategory, search, filteredProducts  } = useContext(CartContext);
-  
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
   const handleSearch = (searchInput)=>{
     setSearch(searchInput);
     console.log("searching for: " + searchInput);
@@ -34,8 +36,23 @@ const Header = () => {
 
   }
 
-
   const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(()=>{
+    const storedUser = localStorage.getItem('user')
+    if(storedUser){
+      setUser(JSON.parse(storedUser))
+      console.log(user)
+    }
+
+  }, []);
+
+  const handleSignOut = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null); // Clear state to instantly re-render navbar
+        navigate('/signInPage'); // Send them back to login page
+    };
 
   return (
     <div className='header'>
@@ -45,7 +62,7 @@ const Header = () => {
             <span>Support / </span>
             <span>Contact</span>
           </div>
-            <span>call us: +251999999999   </span>
+            <span>call us: +251999999999 </span>
           <div>
             <span>
               <select name="curruncies" className="curruncies">
@@ -76,7 +93,7 @@ const Header = () => {
               <option value="clothings">Clothing</option>
             </select>
             <Link to="/searchResultPage">
-              <button className='search-button' onClick={() => handleSearching(search)}>Search</button>
+              <button className='search-button' onClick={() => handleSearching(search)}> Search </button>
             </Link>
             <div className="search-result">
               {isFocused && filteredProducts.length > 0 ? (
@@ -116,13 +133,28 @@ const Header = () => {
               </Link>
 
             </div>
+
             <div className='sign-holder'>
-              <Link to="/signInPage">
-                <button className="sign-btn sign-in"> sign In </button>
-              </Link>
-              <Link to="/signUp">
-                <button className="sign-btn sign-up">sign Up</button>
-              </Link>
+              { user ? (
+                  <>
+                    {/*<div title={user.name}>
+                        {user.name.charAt(0).toUpperCase()}
+                    </div>
+                    <span >Hi, {user.name.split(' ')[0]}</span>*/}
+                    <button className='sign-btn sign-up' onClick={handleSignOut} >
+                        Sign Out
+                    </button>
+                  </>
+              ) : (
+                <>
+                  <Link to="/signInPage">
+                    <button className="sign-btn sign-in"> sign In </button>
+                  </Link>
+                  <Link to="/signUp">
+                    <button className="sign-btn sign-up">sign Up</button>
+                  </Link>
+                </>
+              )}
 
             </div>
           </div>

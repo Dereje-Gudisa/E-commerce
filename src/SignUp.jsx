@@ -1,16 +1,18 @@
 import React from 'react';
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignUp = () => {
-
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
 
-  const API_BASE_URL = 'https://ecommerce-k7mi2hxhe-dereje-gudisas-projects.vercel.app/signInPage';
+  //const API_BASE_URL = 'https://ecommerce-k7mi2hxhe-dereje-gudisas-projects.vercel.app/signInPage';
+  const API_BASE_URL = 'http://localhost:5000';
 
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +38,11 @@ const SignUp = () => {
         console.log('sign up token securely saved');
         setMessage(`🎉 Success! Welcome ${data.user.name}.`);
 
+        setTimeout(() => {
+          navigate('/');
+          window.location.reload();
+        }, 1500);
+
       } else {
         // Error handling (e.g., User already exists)
         setMessage(`❌ Error: ${data.message}`);
@@ -54,24 +61,29 @@ const SignUp = () => {
         <div className="sign-in-header">
           <h2>Sign Up</h2>
         </div>
-        <div className="email-password-container">
-          <input type="text" className='sign-up-email-input' placeholder='Enter Your Name' id="signUpName" value = {name} onChange={(e) => setName(e.target.value)}/>
+        <form onSubmit={handleSignUpSubmit}>
 
-          <input type="text" className='sign-in-password-input' placeholder='Enter Your Phone Number' id="signUpPhone" value = {phone} onChange={(e) => setPhone(e.target.value)}/>
+          <div className="email-password-container">
+            <input type="text" className='sign-up-email-input' placeholder='Enter Your Name' id="signUpName" value = {name} onChange={(e) => setName(e.target.value)} autoComplete='off'/>
 
-          <input type="text" className='sign-up-email-input' placeholder='Email' id="signUpEmail" value = {email} onChange={(e) => setEmail(e.target.value)}/>
+            <input type="text" className='sign-in-password-input' placeholder='Enter Your Phone Number' id="signUpPhone" value = {phone} onChange={(e) => setPhone(e.target.value)} autoComplete='off'/>
 
-          <input type="text" className='sign-in-password-input' placeholder='Password' id="signUpPassword" value = {password} onChange={(e) => setPassword(e.target.value)}/>
-        </div>
+            <input type="text" className='sign-up-email-input' placeholder='Email' id="signUpEmail" value = {email} onChange={(e) => setEmail(e.target.value)} autoComplete='off'/>
 
-        <div className="checkbox-container">
-          
-            <input type="checkbox" name="terms" id="terms" />
-            <label htmlFor="remember">Agree to Terms & Policies</label>
-          
-        </div>
+            <input type="password" className='sign-in-password-input' placeholder='Password' id="signUpPassword" value = {password} onChange={(e) => setPassword(e.target.value)} autoComplete = 'new-password'/>
+          </div>
 
-        <button className='sign-in-button' onClick={handleSignUpSubmit}>Sign Up</button><br />
+          <div className="checkbox-container">
+            
+              <input type="checkbox" name="terms" id="terms" />
+              <label htmlFor="remember">Agree to Terms & Policies</label>
+            
+          </div>
+
+          <button type='submit' className='sign-in-button'>Sign Up</button><br />
+
+        </form>
+
         <label htmlFor="button">
           I already have an account
           <a href="/signIn" className='sign-up-link'>Log In</a>

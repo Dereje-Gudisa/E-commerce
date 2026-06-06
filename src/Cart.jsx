@@ -46,7 +46,6 @@ function Cart() {
     
     <div className="cart-page">
       <div className="added-items">
-        <h1>Shopping Cart</h1>
          {cart.length === 0 ?(
           <div style={{textAlign: 'center', padding: '40px 20px'}}>
             <ImCrying className="crying-emoji"/>
@@ -56,10 +55,10 @@ function Cart() {
         ) :(
 
           <>
-         <h2>Items in Cart: {cart.length}</h2>
+         {/*<h2>Items in Cart: {cart.length}</h2>
          <div className="clear-btn-container">
           <button className="clear-cart-button" onClick={()=>handleClearCart()}>Clear Cart</button>
-        </div>
+        </div>*/}
          {cart.map((item) => (
           
           <div key={item.id} className="cart-item">
@@ -70,12 +69,17 @@ function Cart() {
                   <h2>{item.name}</h2>
                   <p>${item.newPrice}</p>
                 </div>
-                <div className="pcs">
+                {/*<div className="pcs">
                   <button className="decrease-button" onClick={()=>handleDecrease(item.id)}>-</button>
                   <p>{item.quantity} PCS</p>
                   <button className="increase-button" onClick={()=>handleIncrease(item.id)}>+</button>
-                </div>
+                </div>*/}
               </div>
+              <div className="pcs">
+                  <button className="decrease-button" onClick={()=>handleDecrease(item.id)}>-</button>
+                  <p>{item.quantity}</p>
+                  <button className="increase-button" onClick={()=>handleIncrease(item.id)}>+</button>
+                </div>
               <div className="save-delete-button">
                 <button className="save-button" title="Save to wishlist" onClick={()=>{addToWishList(item)}}><FaHeart /></button>
                 <button className="delete-button" title="Delete item" onClick={()=>handleDelete(item.id)}><RiDeleteBin6Line /></button>
@@ -85,6 +89,11 @@ function Cart() {
           
         ))}
 
+        </>)}
+
+      </div>
+
+      {cart.length > 0 && (
         <div className="total-products">
           <div className="prices-list">
             <h2 className="product-price">Subtotal: ${subtotal.toFixed(2)}</h2>
@@ -103,11 +112,7 @@ function Cart() {
             <button className="clear-button" onClick={()=>handleClearCart()}>Clear All</button>
           </div>
         </div>
-
-        </>)}
-
-      </div>
-      
+      )}
 
     </div>
   );

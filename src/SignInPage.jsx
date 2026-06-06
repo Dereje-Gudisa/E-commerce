@@ -1,13 +1,16 @@
-import React from 'react'
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const SignInPage = () => {
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [logInMessage, setLogInMessage] = useState('');
 
-  const API_BASE_URL = 'https://ecommerce-k7mi2hxhe-dereje-gudisas-projects.vercel.app/signInPage';
+  //const API_BASE_URL = 'https://ecommerce-k7mi2hxhe-dereje-gudisas-projects.vercel.app/signInPage';
+  const API_BASE_URL = 'http://localhost:5000';
 
   const handleSignIn = async (e)=>{
     e.preventDefault();
@@ -31,6 +34,12 @@ const SignInPage = () => {
 
         setLogInMessage(`Success! Welcome back.`);
         console.log("Logged in user details:", data);
+
+        setTimeout(() => {
+          navigate('/');
+          window.location.reload();
+        }, 1500);
+
         
       } else { setLogInMessage(`❌ Error: ${data.message}`)}
 
@@ -47,24 +56,28 @@ const SignInPage = () => {
         <div className="sign-in-header">
           <h2>Log In</h2>
         </div>
-        <div className="email-password-container">
-          <input type="text" className='sign-in-email-input' placeholder='Email' id="email" value = {email} onChange={(e)=> setEmail(e.target.value)}/>
+        <form onSubmit={handleSignIn}>
 
-          <input type="text" className='sign-in-password-input' placeholder='Password' id="password" value = {password} onChange={(e)=> setPassword(e.target.value)}/>
-        </div>
+          <div className="email-password-container">
+            <input type="email" className='sign-in-email-input' placeholder='Email' id="email" value = {email} onChange={(e)=> setEmail(e.target.value)} autoComplete = "email"/>
+            
+            <input type="password" className='sign-in-password-input' placeholder='Password' id="password" value = {password} onChange={(e)=> setPassword(e.target.value)} autoComplete = "currrent-password" />
+          </div>
+          
+          <div className="remember-me-container">
+            <span className='remember-chekbox'>
+              <input type="checkbox" name="remember" id="remember" />
+              <label htmlFor="remember">Remember me</label>
+            </span>
+            <a href="/forgotPassword">forgot password</a>
+          </div>
 
-        <div className="remember-me-container">
-          <span className='remember-chekbox'>
-            <input type="checkbox" name="remember" id="remember" />
-            <label htmlFor="remember">Remember me</label>
-          </span>
-          <a href="/forgotPassword">forgot password</a>
-        </div>
+          <button type='submit' className='sign-in-button'>Log In</button><br />
+        </form>
 
-        <button className='sign-in-button' onClick={handleSignIn}>Log In</button><br />
         <label htmlFor="button">
           Don't have an account? 
-          <a href="/signUp" className='sign-up-link'>Sign Up</a>
+          <a href="/signUp" className='sign-up-link sign-btn sign-in'>Sign Up</a>
         </label>
         <p className="feedback-message">{logInMessage}</p>
       </div>
