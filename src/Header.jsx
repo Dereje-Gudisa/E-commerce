@@ -101,7 +101,7 @@ const Header = () => {
 
                   <div key={product.id} className="matched-lists" onMouseDown={()=>handleSelect(product.name)}>
                     <h4>{product.name}</h4>
-                  </div>
+                  </div>  
                   
                   ))
                 ) : ( isFocused &&

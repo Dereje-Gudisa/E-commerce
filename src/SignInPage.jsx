@@ -77,7 +77,7 @@ const SignInPage = () => {
 
         <label htmlFor="button">
           Don't have an account? 
-          <a href="/signUp" className='sign-up-link sign-btn sign-in'>Sign Up</a>
+          <a href="/signUp" className='sign-up-link'>Sign Up</a>
         </label>
         <p className="feedback-message">{logInMessage}</p>
       </div>
