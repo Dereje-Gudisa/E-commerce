@@ -10,7 +10,7 @@ const SignUp = () => {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
 
-  const API_BASE_URL = 'https://ecommerce-orpin-kappa-83.vercel.app';
+  const API_BASE_URL = 'https://ecommerce-k7mi2hxhe-dereje-gudisas-projects.vercel.app/signInPage';
 
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
