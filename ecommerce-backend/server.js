@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGO_URI)
 //routes
 app.use('/api/auth', require('./routes/authRoutes'));
 
+app.use('/api/products', require('./routes/productRoutes'));
+
 // Basic Route
 app.get('/', (req, res) => {
     res.send('API is running...')
