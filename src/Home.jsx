@@ -1,13 +1,62 @@
 import React, { useState, useEffect } from 'react'
 import Cards from './Cards.jsx';
 import Advert from './Advert.jsx';
-import products from './data/products.js';
+//import products from './data/products.js';
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
   const [visibleProducts, setVisibleProducts] = useState(8);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  // 🟢 Fetch products from the backend server database on page mount
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/products');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        
+        setProducts(data);
+        setFilteredProducts(data); // Initialize the filtered view with all data
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching live products:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchAllProducts();
+  }, []);
+  
+  // Filter products based on category selection
+  useEffect(() => {
+    if (products.length === 0) return; // Wait until data has finished loading
+
+    let filtered = products;
+
+    switch(activeCategory) {
+      case 'new':
+        filtered = products.slice(0, 4);
+        break;
+      case 'featured':
+        // 🟢 Updated to match MongoDB's hex string length or string index mechanics for demo sorting
+        filtered = products.filter((product, index) => index % 2 === 0);
+        break;
+      case 'top':
+        // 🟢 Updated to match index filtering instead of missing numerical IDs
+        filtered = products.filter((product, index) => index % 2 !== 0);
+        break;
+      default:
+        filtered = products;
+    }
+
+    setFilteredProducts(filtered);
+    setVisibleProducts(8); 
+  }, [activeCategory, products]); // Added products as a dependency so it updates once data arrives
+
+/*
   // Filter products based on category
   useEffect(() => {
     let filtered = products;
@@ -32,6 +81,8 @@ const Home = () => {
     setFilteredProducts(filtered);
     setVisibleProducts(8); // Reset visible products when category changes
   }, [activeCategory]);
+
+  */
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
@@ -77,7 +128,7 @@ const Home = () => {
       <div className="card-holder">
         {currentProducts.length > 0 ? (
           currentProducts.map((product) => (
-            <Cards key={product.id} product={product} />
+            <Cards key={product._id} product={product} />
           ))
         ) : (
           <div className="no-products">

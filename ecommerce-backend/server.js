@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(express.json()); // Allows parsing of JSON request bodies
+//app.use(express.json()); // Allows parsing of JSON request bodies
 app.use(cors());        // Allows your frontend to talk to your backend
 app.use(express.json());
 
