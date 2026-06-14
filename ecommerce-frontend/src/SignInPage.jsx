@@ -62,7 +62,7 @@ const SignInPage = () => {
           <div className="email-password-container">
             <input type="email" className='sign-in-email-input' placeholder='Email' id="email" value = {email} onChange={(e)=> setEmail(e.target.value)} autoComplete = "email"/>
             
-            <input type="password" className='sign-in-password-input' placeholder='Password' id="password" value = {password} onChange={(e)=> setPassword(e.target.value)} autoComplete = "currrent-password" />
+            <input type="password" className='sign-in-password-input' placeholder='Password' id="password" value = {password} onChange={(e)=> setPassword(e.target.value)} autoComplete = "current-password" />
           </div>
           
           <div className="remember-me-container">
