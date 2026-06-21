@@ -56,13 +56,10 @@ function Cart() {
         ) :(
 
           <>
-         {/*<h2>Items in Cart: {cart.length}</h2>
-         <div className="clear-btn-container">
-          <button className="clear-cart-button" onClick={()=>handleClearCart()}>Clear Cart</button>
-        </div>*/}
+         
          {cart.map((item) => (
           
-          <div key={item.id} className="cart-item">
+          <div key={item._id} className="cart-item">
             <div className="item-container">
               <img src={item.image} alt="product-img" />
               <div className="item-details">
@@ -70,20 +67,16 @@ function Cart() {
                   <h2>{item.name}</h2>
                   <p>${item.newPrice}</p>
                 </div>
-                {/*<div className="pcs">
-                  <button className="decrease-button" onClick={()=>handleDecrease(item.id)}>-</button>
-                  <p>{item.quantity} PCS</p>
-                  <button className="increase-button" onClick={()=>handleIncrease(item.id)}>+</button>
-                </div>*/}
+                
               </div>
               <div className="pcs">
-                  <button className="decrease-button" onClick={()=>handleDecrease(item.id)}>-</button>
+                  <button className="decrease-button" onClick={()=>handleDecrease(item._id)}>-</button>
                   <p>{item.quantity}</p>
-                  <button className="increase-button" onClick={()=>handleIncrease(item.id)}>+</button>
+                  <button className="increase-button" onClick={()=>handleIncrease(item._id)}>+</button>
                 </div>
               <div className="save-delete-button">
                 <button className="save-button" title="Save to wishlist" onClick={()=>{addToWishList(item)}}><FaHeart /></button>
-                <button className="delete-button" title="Delete item" onClick={()=>handleDelete(item.id)}><RiDeleteBin6Line /></button>
+                <button className="delete-button" title="Delete item" onClick={()=>handleDelete(item._id)}><RiDeleteBin6Line /></button>
               </div>
             </div>
           </div>

@@ -49,10 +49,10 @@ const SavedItem = () => {
                 {/*<h1>Saved Items</h1>
                 <h2>Items in Wishlist: {wishList.length}</h2>
                 <div className="clear-btn-container">
-                    <button className="clear-cart-button" onClick={()=>handelClearWishList()}>Clear Wishlist</button>
+                    <button className="clear-cart-button" onClick={()=>handelClearWishList()}>Cle   ar Wishlist</button>
                 </div>*/}
                 {wishList.map((item) =>(
-                    <div key={item.id} className="saved-item">
+                    <div key={item._id} className="saved-item">
                         <div className="wish-item-container">
                             <img src={item.image} alt="product-img" className='wish-item-image' />
                             <div className="wish-item-details">
@@ -61,7 +61,7 @@ const SavedItem = () => {
                             </div>
                             <div className="wish-item-buttons">
                                 <button className="add-to-cart-button" title="Add to cart" onClick={()=>{addToCart(item)}}>Add Cart</button>
-                                <button className="delete-button" title="Delete item" onClick={()=>handleDelete(item.id)}><TbHeartBrokenFilled /></button>
+                                <button className="delete-button" title="Delete item" onClick={()=>handleDelete(item._id)}><TbHeartBrokenFilled /></button>
                             </div>
                         </div>
                     </div>  

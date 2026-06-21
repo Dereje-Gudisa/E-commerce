@@ -10,19 +10,19 @@ const Cards = ({product, showButton = true}) => {
   const { addToCart, addToWishList, removeFromWishList, wishList } = useContext(CartContext);
 
   // Check if product is in wishlist
-  const isInWishlist = wishList.some(item => item.id === product.id);
+  const isInWishlist = wishList.some(item => item._id === product._id);
 
   // Rating state - get from localStorage or default to product rating or 0
   const [rating, setRating] = useState(() => {
     const storedRatings = JSON.parse(localStorage.getItem('productRatings') || '{}');
-    return storedRatings[product.id] || (product.rating || 0);
+    return storedRatings[product._id] || (product.rating || 0);
   });
 
   const [hoverRating, setHoverRating] = useState(0);
 
   const handleWishlistToggle = () => {
     if (isInWishlist) {
-      removeFromWishList(product.id);
+      removeFromWishList(product._id);
     } else {
       addToWishList(product);
     }
@@ -32,7 +32,7 @@ const Cards = ({product, showButton = true}) => {
     setRating(newRating);
     // Store rating in localStorage
     const storedRatings = JSON.parse(localStorage.getItem('productRatings') || '{}');
-    storedRatings[product.id] = newRating;
+    storedRatings[product._id] = newRating;
     localStorage.setItem('productRatings', JSON.stringify(storedRatings));
   };
 
