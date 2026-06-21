@@ -11,10 +11,13 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   // 🟢 Fetch products from the backend server database on page mount
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  //`${API_BASE_URL}/api/products`
+  //'http://localhost:5000/api/products'
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products');
+        const response = await fetch(`${API_BASE_URL}/api/products`);
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         
