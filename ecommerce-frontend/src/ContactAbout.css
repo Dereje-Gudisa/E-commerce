@@ -1,0 +1,97 @@
+/* ==========================================================================
+   CONTACT AND ABOUT CARDS GRID SYSTEMS
+   ========================================================================== */
+
+.contact-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.contact-page > p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+
+/* --- Flexible Information Parent Grid --- */
+.informations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.information-childeren {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.information-childeren:hover {
+  background-color: white;
+  border-color: #f97316;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.information-childeren svg {
+  font-size: 1.5rem;
+  color: #f97316;
+}
+
+/* --- About Main Section Organizers --- */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.about-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  position: relative;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.about-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background-color: #f97316;
+}
+
+.about-columns p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.about-columns p:hover {
+  color: #f97316;
+}

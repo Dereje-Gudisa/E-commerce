@@ -1,0 +1,128 @@
+/* ==========================================================================
+   AUTHENTICATION REGISTRATION MODULES (Sign In / Sign Up)
+   ========================================================================== */
+
+.sign-in-page, .sign-up-page {
+  max-width: 400px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+}
+
+.sign-in-header h2, .sign-up-header h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
+
+.email-password-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.sign-in-email-input,
+.sign-in-password-input,
+.sign-up-page input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.sign-in-email-input:focus,
+.sign-in-password-input:focus,
+.sign-up-page input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+/* Control Options Strip */
+.remember-me-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.remember-chekbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.remember-chekbox input {
+  cursor: pointer;
+  accent-color: #f97316;
+}
+
+.remember-me-container a {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.remember-me-container a:hover {
+  text-decoration: underline;
+}
+
+/* Gateway Form Submissions */
+.sign-in-button, .sign-up-button {
+  width: 100%;
+  background-color: #f97316;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sign-in-button:hover, .sign-up-button:hover {
+  background-color: #ea580c;
+}
+
+/* Bottom Label Alignment */
+.sign-in-page > label, .sign-up-page > label {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.sign-up-link {
+  color: #f97316;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
+
+/* Live Server Feedback Notices */
+.feedback-message {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}

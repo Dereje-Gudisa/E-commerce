@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cards from './Cards.jsx';
 //import products from './data/products.js';
+import './Shop.css';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);

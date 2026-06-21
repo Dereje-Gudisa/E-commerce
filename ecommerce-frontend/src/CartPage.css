@@ -1,0 +1,162 @@
+/* ==========================================================================
+   CART AND WISHLIST PANELS
+   ========================================================================== */
+
+.cart-page, .wish-list-page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  align-items: flex-start;
+}
+
+.added-items, .wish-list-items-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.added-items h1, .wish-list-items-section h1 {
+  font-size: 1.75rem;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+/* --- Line Items --- */
+.cart-item, .wish-item-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+  gap: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.cart-item:hover, .wish-item-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.item-container img, .wish-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-details h2, .wish-item-details h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* --- Increment Block --- */
+.pcs {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.pcs button {
+  background-color: white;
+  border: 1px solid #d1d5db;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- Actions Panels --- */
+.save-delete-button, .wish-item-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.delete-button, .save-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover { background-color: #fee2e2; color: #ef4444; border-color: #fca5a5; }
+.save-button:hover { background-color: #fff7ed; color: orange; border-color: #ffedd5; }
+
+/* --- Checkout Side Panel Card --- */
+.total-products, .wish-list-summary {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  position: sticky;
+  top: 30px;
+}
+
+.checkout-button {
+  width: 100%;
+  background-color: #111827;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.checkout-button:hover { background-color: #1f2937; }
+
+/* ==========================================================================
+   RESPONSIVE SIDEBAR PANELS
+   ========================================================================== */
+
+@media (max-width: 850px) {
+  .cart-page, .wish-list-page {
+    grid-template-columns: 1fr;
+  }
+  .total-products, .wish-list-summary {
+    position: static;
+    width: 100%;
+  }
+  .cart-item, .wish-item-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .save-delete-button, .wish-item-buttons {
+    width: 100%;
+    justify-content: flex-end;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 10px;
+    margin-top: 5px;
+  }
+}

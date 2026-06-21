@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import './HeaderNav.css';
+
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

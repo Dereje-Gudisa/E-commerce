@@ -1,0 +1,58 @@
+/* ==========================================================================
+   GLOBAL FOOTER BLOCK HOUSING
+   ========================================================================== */
+
+.footer {
+  background-color: #0f172a; /* deep navy/charcoal slate */
+  border-top: 1px solid #1e293b;
+  margin-top: auto; /* Pushes bottom row downwards safely on short viewports */
+  width: 100%;
+}
+
+/* Overrides internal nested child tokens specifically when used inside dark footers */
+.footer .about-container {
+  padding: 50px 20px 30px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.footer .about-header {
+  color: #f8fafc;
+}
+
+.footer .about-columns p {
+  color: #94a3b8;
+}
+
+.footer .about-columns p:hover {
+  color: #f97316;
+}
+
+/* --- Copy/Design Signature Base Stripe --- */
+.copyright {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.copyright p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE FOOTER CONNECTIONS
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .copyright {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}

@@ -3,6 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaFirefoxBrowser } from "react-icons/fa";
+import './ContactAbout.css'
 
 
 const Contact = () => {

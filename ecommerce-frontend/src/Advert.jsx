@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import carousel1 from './assets/carousel-1.png';
 import carousel2 from './assets/header-img.jpg';
 import { FaArrowRightLong } from "react-icons/fa6";
+import './Advert.css'
 
 const Advert = () => {
   return (

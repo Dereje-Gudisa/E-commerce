@@ -4,6 +4,7 @@ import { CartContext } from "./context/CartContext.jsx";
 import { FaHeart } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ImCrying } from "react-icons/im";
+import './CartPage.css';
 
 
 function Cart() {
