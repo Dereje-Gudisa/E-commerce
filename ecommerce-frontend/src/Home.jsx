@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Cards from './Cards.jsx';
 import Advert from './Advert.jsx';
+import './Home.css'
 //import products from './data/products.js';
 
 const Home = () => {

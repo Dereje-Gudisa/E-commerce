@@ -6,6 +6,7 @@ import { FaHeart } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TbHeartBrokenFilled } from "react-icons/tb";
 import { ImCrying } from "react-icons/im";
+import './SavedItem.css'
 
 const SavedItem = () => {
     const { wishList, removeFromWishList, clearWishList, addToCart } = useContext(CartContext);

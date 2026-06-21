@@ -1,0 +1,307 @@
+/* ==========================================================================
+   1. MAIN PAGE CONFIGURATIONS & CONTAINERS
+   ========================================================================== */
+
+.checkout-page {
+  width: 100%;
+  background-color: #f8fafc; /* Subtle, clean off-white background */
+  min-height: calc(100vh - 200px); /* Keeps footer clean */
+  padding: 40px 0;
+}
+
+.checkout-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.checkout-container h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   2. EMPTY CART VIEW STATE FALLBACK
+   ========================================================================== */
+
+.checkout-empty {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 60px 24px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.checkout-empty p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.checkout-link {
+  display: inline-block;
+  background-color: #f97316; /* Primary brand orange accent */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.checkout-link:hover {
+  background-color: #ea580c;
+}
+
+.checkout-link:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   3. TWO-COLUMN CORE GRID SYSTEMS LAYOUT
+   ========================================================================== */
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   4. BILLING DATA INPUT SECTIONS (LEFT COLUMN)
+   ========================================================================== */
+
+.checkout-form-section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.checkout-form-section h2,
+.checkout-summary h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Semantic Layout Fields Forms Stack */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569; /* Balanced slate text handles labels */
+}
+
+.checkout-form input {
+  width: 100%;
+  height: 46px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 0.95rem;
+  color: #0f172a;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Focus and active input interaction maps */
+.checkout-form input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.checkout-form input::placeholder {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   5. FLOATING SUMMARY CALCULATIONS ENGINE (RIGHT COLUMN ASIDE)
+   ========================================================================== */
+
+.checkout-summary {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  position: sticky;
+  top: 24px; /* Pins calculating summary window when rolling down long forms */
+}
+
+/* Embedded Scrollable Ordered List Frame */
+.checkout-items {
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+  padding-right: 4px;
+}
+
+/* Custom minimal scrollbar engine for item frame box lists */
+.checkout-items::-webkit-scrollbar {
+  width: 6px;
+}
+.checkout-items::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+.checkout-items::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Horizontal item listing rows */
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f1f5f9;
+  gap: 16px;
+}
+
+.checkout-item span:first-child {
+  color: #334155;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Safely trims out massive title string boundaries cleanly */
+}
+
+.checkout-item span:last-child {
+  color: #64748b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Accumulators Summary Subtotal Row Items Stack */
+.checkout-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+  background-color: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.checkout-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* Massive Total Calculation Accumulator Layout Rules override */
+.checkout-total-final {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+/* Action Gateways Operations Buttons Wrapper Container Box */
+.checkout-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-actions .checkout-button {
+  width: 100%;
+  background-color: #f97316; /* Clean brand core orange CTA color */
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+}
+
+.checkout-actions .checkout-button:hover {
+  background-color: #ea580c;
+}
+
+.checkout-actions .checkout-button:active {
+  transform: translateY(1px);
+}
+
+.checkout-actions .clear-button {
+  width: 100%;
+  background-color: transparent;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.checkout-actions .clear-button:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   6. BREAKPOINTS MEDIA QUERIES (RESPONSIVE ENGINE)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 1fr; /* Force columns grids stack down linearly to save inline view real estate */
+    gap: 24px;
+  }
+  
+  .checkout-summary {
+    position: static; /* Release frozen viewport boundary placement models */
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-page {
+    padding: 20px 0;
+  }
+
+  .checkout-container {
+    padding: 0 16px;
+  }
+
+  .checkout-container h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .checkout-form-section {
+    padding: 20px;
+  }
+}

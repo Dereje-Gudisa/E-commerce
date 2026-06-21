@@ -4,6 +4,7 @@ import { RiStarSLine, RiStarFill } from "react-icons/ri";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
 import { CartContext } from "./context/CartContext";
+import './CardsPage.css'
 
 const Cards = ({product, showButton = true}) => {
 

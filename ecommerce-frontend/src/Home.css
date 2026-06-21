@@ -1,0 +1,188 @@
+/* ==========================================================================
+   1. MAIN HOMEPAGE WRAPPER LAYOUT
+   ========================================================================== */
+
+.home {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px 60px 24px; /* Generous bottom spacing for general cleanup */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Home Page Component Core Title Header */
+.home > h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 40px 0 20px 0;
+  letter-spacing: -0.025em;
+  position: relative;
+}
+
+/* Subtle accent line under the main section header */
+.home > h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #f97316; /* Matches your primary application orange accent theme */
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   2. CATEGORY SWITCHER HORIZONTAL TABS (.products)
+   ========================================================================== */
+
+.products {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+  overflow-x: auto; /* Allow sliding fallback layouts on narrow screens */
+  scrollbar-width: none; /* Hide scrollbars on modern Firefox versions */
+}
+
+.products::-webkit-scrollbar {
+  display: none; /* Hide scrollbars on modern Chrome / Safari views */
+}
+
+/* Base Category Switcher Trigger Handles */
+.items-track {
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b; /* Neutral dark slate */
+  cursor: pointer;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.items-track:hover {
+  color: #f97316;
+  background-color: #fff7ed; /* Ultra soft transparent orange background tint */
+}
+
+/* Active Category Selection Layout Variations */
+.items-track.active {
+  background-color: #f97316;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+}
+
+/* ==========================================================================
+   3. PRODUCT DYNAMIC HOOK GRIDS (.card-holder)
+   ========================================================================== */
+
+.card-holder {
+  display: grid;
+  /* Automatically columns fill up space, capping card sizes min 260px */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+/* Fallback Framework layout when no database items exist */
+.no-products {
+  grid-column: 1 / -1; /* Stretch across all columns */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.no-products p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ==========================================================================
+   4. LOADING CONTROLS & SUBMISSION WRAPPERS
+   ========================================================================== */
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  width: 100%;
+}
+
+/* The Call-To-Action Pagination Control Trigger */
+.load-more-btn {
+  background-color: #0f172a; /* Sophisticated clean midnight dark slate background */
+  color: #ffffff;
+  border: none;
+  padding: 14px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+  transition: all 0.15s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+}
+
+/* Baseline indicator notification notice */
+.all-loaded {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background-color: #f1f5f9;
+  padding: 8px 24px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE MEDIA TARGET QUERIES
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .home {
+    padding: 0 16px 40px 16px;
+  }
+
+  .home > h1 {
+    font-size: 1.65rem;
+    margin: 30px 0 16px 0;
+  }
+
+  .products {
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+
+  .items-track {
+    padding: 6px 14px;
+    font-size: 0.88rem;
+  }
+
+  .card-holder {
+    /* Tighten grids down on mobile viewports for compact screen real estate */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+}

@@ -39,7 +39,7 @@ const Header = () => {
 
   useEffect(()=>{
     const storedUser = localStorage.getItem('user')
-    if(storedUser){
+    if(storedUser){ 
       setUser(JSON.parse(storedUser))
       console.log(user)
     }
@@ -55,10 +55,35 @@ const Header = () => {
 
   return (
     <div className='header'>
+          
+      <div className='header-top-info'>
+        <div>
+          <span className=''>Help / </span>
+          <span>Support / </span>
+          <span>Contact</span>
+        </div>
+        <span>call us: +251999999999 </span>
+
+      <div>
+        <span>
+          <select name="curruncies" className="curruncies">
+            <option value="birr" id="">ETB</option>
+            <option value="dollar" id="">US</option>
+          </select>
+        </span>
+        <select name="languages" id="" className='languages'>
+          <option value="english">English</option>
+          <option value="amharic">Amharic</option>
+        </select>
+        <span> My Dashboard</span>
+      </div>
+      </div>
+
       <div className="header-info">
         
+        
         {/* Left Side: Branding Title / Logo */}
-        <h2 onClick={() => navigate('/')}>MyeCommerce</h2>
+        <h2 onClick={() => navigate('/')}><img src={Logo} alt="logo" /></h2>
 
         {/* Center Section: Search Inputs */}
         <div className="search-area">

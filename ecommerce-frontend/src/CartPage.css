@@ -1,162 +1,313 @@
 /* ==========================================================================
-   CART AND WISHLIST PANELS
+   1. CORE PAGE CONTEXT LAYOUT
    ========================================================================== */
 
-.cart-page, .wish-list-page {
+.cart-page {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  align-items: flex-start;
+  /* 1fr space for items list, fixed width for summary calculations card */
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
 }
 
-.added-items, .wish-list-items-section {
+/* Left main side wrap panel container */
+.added-items {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.added-items h1, .wish-list-items-section h1 {
-  font-size: 1.75rem;
-  color: #111827;
-  margin-bottom: 20px;
+/* Empty Viewport Center Utilities */
+.crying-emoji {
+  font-size: 3.5rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
 }
 
-/* --- Line Items --- */
-.cart-item, .wish-item-container {
-  display: flex;
-  align-items: center;
-  background-color: white;
+/* ==========================================================================
+   2. INDIVIDUAL PRODUCT ROW CARDS (.cart-item)
+   ========================================================================== */
+
+.cart-item {
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 16px;
-  margin-bottom: 14px;
-  gap: 16px;
-  transition: box-shadow 0.2s ease;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.cart-item:hover, .wish-item-container:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+.cart-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-color: #cbd5e1;
 }
 
+/* Standard Flex Alignments inside Item Box Row */
 .item-container {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex: 1;
+  gap: 20px;
+  width: 100%;
 }
 
-.item-container img, .wish-item-image {
-  width: 80px;
-  height: 80px;
+.item-container img {
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 8px;
   background-color: #f9fafb;
 }
 
+/* Middle descriptive text frame */
 .item-details {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex: 1;
 }
 
-.item-details h2, .wish-item-details h3 {
-  font-size: 1rem;
+.item-summary h2 {
+  font-size: 1.1rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #111827;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.item-summary p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f97316; /* E-commerce accent theme orange color */
   margin: 0;
 }
 
-/* --- Increment Block --- */
+/* ==========================================================================
+   3. QUANTITY PILL INCREMENT CONTROL (.pcs)
+   ========================================================================== */
+
 .pcs {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #f3f4f6;
-  padding: 6px 12px;
-  border-radius: 8px;
-}
-
-.pcs button {
-  background-color: white;
-  border: 1px solid #d1d5db;
-  width: 26px;
-  height: 26px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* --- Actions Panels --- */
-.save-delete-button, .wish-item-buttons {
   display: flex;
-  gap: 8px;
-  margin-left: auto;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  background-color: #f9fafb;
+  overflow: hidden;
 }
 
-.delete-button, .save-button {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  background: white;
+.pcs p {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  min-width: 36px;
+  text-align: center;
+}
+
+.decrease-button,
+.increase-button {
+  background: transparent;
+  border: none;
+  width: 34px;
+  height: 34px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #4b5563;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.decrease-button:hover,
+.increase-button:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+/* ==========================================================================
+   4. INTERACTIVE UTILITY TRIGGERS (SAVE & TRASH)
+   ========================================================================== */
+
+.save-delete-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.save-button,
+.delete-button {
+  background-color: #f3f4f6;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.delete-button:hover { background-color: #fee2e2; color: #ef4444; border-color: #fca5a5; }
-.save-button:hover { background-color: #fff7ed; color: orange; border-color: #ffedd5; }
+/* Heart Save Trigger */
+.save-button {
+  color: #6b7280;
+}
+.save-button:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
 
-/* --- Checkout Side Panel Card --- */
-.total-products, .wish-list-summary {
+/* Trash Bin Delete Trigger */
+.delete-button {
+  color: #6b7280;
+}
+.delete-button:hover {
+  background-color: #ffedd5;
+  color: #ea580c;
+}
+
+/* ==========================================================================
+   5. RIGHT COLUMN SIDE SUMMARY SIDE PANEL (.total-products)
+   ========================================================================== */
+
+.total-products {
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 24px;
   position: sticky;
-  top: 30px;
+  top: 24px; /* Pins calculating element layout view upon long scroll frames */
+}
+
+.prices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 18px;
+}
+
+/* Standardizing sub headers row items mapping layout labels */
+.prices-list h2 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Custom adjustment alerts highlighting indicators */
+.discount, 
+.coupon {
+  color: #10b981 !important; /* Pure environmental adjustments emerald green */
+}
+
+/* Final calculation highlight stack line label */
+.prices-list .total-price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px dashed #d1d5db;
+}
+
+/* Information status ribbon separator descriptor text styling */
+.cart-summary-bar {
+  text-align: center;
+  margin: 16px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* Dynamic action operations submit buttons wrapper block */
+.checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .checkout-button {
   width: 100%;
-  background-color: #111827;
-  color: white;
+  background-color: #f97316; /* Clean brand core operational orange accent color */
+  color: #ffffff;
   border: none;
-  padding: 12px;
+  padding: 14px;
   border-radius: 8px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 15px;
+  transition: background-color 0.15s ease;
 }
 
-.checkout-button:hover { background-color: #1f2937; }
+.checkout-button:hover {
+  background-color: #ea580c;
+}
+
+.clear-button {
+  width: 100%;
+  background-color: transparent;
+  color: #4b5563;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.clear-button:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+  color: #111827;
+}
 
 /* ==========================================================================
-   RESPONSIVE SIDEBAR PANELS
+   6. RESPONSIVE COMPACT MEDIA QUERIES
    ========================================================================== */
 
-@media (max-width: 850px) {
-  .cart-page, .wish-list-page {
-    grid-template-columns: 1fr;
+@media (max-width: 960px) {
+  .cart-page {
+    grid-template-columns: 1fr; /* Switch split view side layouts to single stacked list block column */
+    margin: 20px auto;
+    gap: 24px;
   }
-  .total-products, .wish-list-summary {
-    position: static;
-    width: 100%;
+
+  .total-products {
+    position: static; /* Drops absolute locked attachment calculations view rules */
   }
-  .cart-item, .wish-item-container {
-    flex-direction: column;
-    align-items: flex-start;
+}
+
+@media (max-width: 640px) {
+  .item-container {
+    flex-wrap: wrap; /* Allows components elements to flow seamlessly downwards on small phones screens */
+    gap: 12px;
   }
-  .save-delete-button, .wish-item-buttons {
-    width: 100%;
-    justify-content: flex-end;
-    border-top: 1px solid #f3f4f6;
-    padding-top: 10px;
-    margin-top: 5px;
+
+  .item-container img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .item-details {
+    min-width: 160px;
+  }
+
+  .pcs {
+    order: 3; /* Shuffles counter input directly beneath text boundaries on mobile formats grid */
+    margin-left: 87px; 
+  }
+
+  .save-delete-button {
+    order: 4;
+    margin-left: auto; /* Aligns interacting action circles cleanly to the edge screen bounding border box */
   }
 }

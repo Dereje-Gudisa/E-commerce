@@ -1,0 +1,277 @@
+/* ==========================================================================
+   1. CORE WISHLIST FRAMEWORK WRAPPER
+   ========================================================================== */
+
+.wish-list-page {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* Split Column Engine Setup */
+.wish-list-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px; /* Left column expands, calculations card on right matches Cart layout */
+  gap: 32px;
+  align-items: start;
+}
+
+/* Left Main Core List Column Wrap */
+.wish-list-items-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Empty State Styling */
+.wish-list-page .crying-emoji {
+  font-size: 3.5rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   2. INDIVIDUAL WISHLIST ROW BLOCKS (.saved-item / .wish-item-container)
+   ========================================================================== */
+
+.saved-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.saved-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-color: #cbd5e1;
+}
+
+.wish-item-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.wish-item-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+/* Middle Description Info Box */
+.wish-item-details {
+  flex: 1;
+}
+
+.wish-item-details h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.wish-item-details p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f97316; /* Matches application primary theme orange color accent */
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. WISHLIST ACTION BUTTON HOOK INTERACTORS
+   ========================================================================== */
+
+.wish-item-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* "Add Cart" operational CTA button */
+.add-to-cart-button {
+  background-color: #0f172a; /* Clean contrast midnight dark slate appearance */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #1e293b;
+}
+
+.add-to-cart-button:active {
+  transform: scale(0.98);
+}
+
+/* Broken heart item removal button circle */
+.wish-item-buttons .delete-button {
+  background-color: #f3f4f6;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.wish-item-buttons .delete-button:hover {
+  background-color: #fee2e2;
+  color: #ef4444; /* Turns bright crimson on remove highlight triggers */
+}
+
+/* ==========================================================================
+   4. RIGHT SIDE ACCUMULATING PRICING PANEL SYSTEM
+   ========================================================================== */
+
+.wish-list-summary {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  position: sticky;
+  top: 24px; /* Keeps computational card frozen in active viewport layout frame on desktop scroll */
+}
+
+.wish-list-summary .prices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 18px;
+}
+
+/* Setup row metrics align item spreads */
+.wish-list-summary .prices-list h2 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* Standard Highlight Color Modifiers */
+.wish-list-summary .discount, 
+.wish-list-summary .coupon {
+  color: #10b981 !important; /* Emerald clean green adjustments indicators tint */
+}
+
+/* Calculations bottom checkout indicator baseline row divider line layout */
+.wish-list-summary .prices-list .total-price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px dashed #d1d5db;
+}
+
+/* Actions wrapper buttons box matrix layout stack */
+.wish-list-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* React Router navigation element tracking block configuration overrides */
+.wish-list-actions .checkout-button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  background-color: #f97316;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.wish-list-actions .checkout-button:hover {
+  background-color: #ea580c;
+}
+
+.wish-list-actions .clear-button {
+  width: 100%;
+  background-color: transparent;
+  color: #4b5563;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.wish-list-actions .clear-button:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+/* ==========================================================================
+   5. BREAKPOINT LAYOUT ADAPTABILITY ENGINE
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .wish-list-layout {
+    grid-template-columns: 1fr; /* Force columns layout fields to stack linearly downwards */
+    gap: 24px;
+  }
+
+  .wish-list-summary {
+    position: static; /* Clear sticky positioning models rules on compact dimensions view ports */
+  }
+}
+
+@media (max-width: 640px) {
+  .wish-item-container {
+    flex-wrap: wrap; /* Elements collapse gracefully if view space drops tightly on compact displays */
+    gap: 12px;
+  }
+
+  .wish-item-image {
+    width: 75px;
+    height: 75px;
+  }
+
+  .wish-item-details {
+    min-width: 160px;
+  }
+
+  .wish-item-buttons {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dotted #f3f4f6;
+  }
+  
+  .add-to-cart-button {
+    flex: 1; /* Stretch action buttons safely to balance mobile finger press taps models */
+    text-align: center;
+  }
+}

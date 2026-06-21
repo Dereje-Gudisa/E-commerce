@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from './context/CartContext.jsx';
+import './CheckOut.css'
 
 const CheckOut = () => {
   const { cart, clearCart } = useContext(CartContext);
