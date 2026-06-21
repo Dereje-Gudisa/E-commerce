@@ -3,13 +3,15 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+const dns = require('node:dns');  
+dns.setDefaultResultOrder('ipv4first');
+
 dotenv.config();
 const app = express();
 
 // Middleware
-//app.use(express.json()); // Allows parsing of JSON request bodies
+app.use(express.json()); // Allows parsing of JSON request bodies
 app.use(cors());        // Allows your frontend to talk to your backend
-app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB Cloud successfully!'))

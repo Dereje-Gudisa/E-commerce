@@ -31,7 +31,7 @@ const Home = () => {
     };
 
     fetchAllProducts();
-  }, []);
+  }, [API_BASE_URL]);
   
   // Filter products based on category selection
   useEffect(() => {

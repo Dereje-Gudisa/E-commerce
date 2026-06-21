@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cards from './Cards.jsx';
-import products from './data/products.js';
+//import products from './data/products.js';
 
 const Shop = () => {
+  const [products, setProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleProducts, setVisibleProducts] = useState(12);
+  const [loading, setLoading] = useState(true);
+
+  // 🟢 Fetch setup using your centralized API base URL environment variable
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+  useEffect(() => {
+    const fetchShopProducts = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/products`);
+        if (!response.ok) throw new Error('Failed to fetch shop inventory');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error loading live database items into Shop:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchShopProducts();
+  }, [API_BASE_URL]);
 
   const categories = ['all', ...Array.from(new Set(products.map((product) => product.category)))];
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = activeCategory === 'all' || product.category === activeCategory;
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || product.category.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = product.name?.toLowerCase().includes(searchTerm.toLowerCase()) || product.category?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -53,9 +74,9 @@ const Shop = () => {
           />
         </div>
         <div className='products'>
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <button
-              key={category}
+              key={`${category}-${index}`}
               className={`items-track ${activeCategory === category ? 'active' : ''}`}
               onClick={() => {
                 setActiveCategory(category);
@@ -70,7 +91,7 @@ const Shop = () => {
 
       <div className='card-holder'>
         {currentProducts.length > 0 ? (
-          currentProducts.map((product) => <Cards key={product.id} product={product} />)
+          currentProducts.map((product) => <Cards key={product._id} product={product} />)
         ) : (
           <div className='no-products'>
             <p>No results found. Try a different search term or category.</p>
