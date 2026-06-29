@@ -9,8 +9,7 @@ import './ContactAbout.css'
 const Contact = () => {
   return (
     <div className='contact-page'>
-
-        <p>contact page</p>
+        
         <div className="informations">
           <div className="information-childeren address"><FaLocationDot />Address</div>
           <div className="information-childeren mail-us"><TbMailFilled />Mail Us</div>

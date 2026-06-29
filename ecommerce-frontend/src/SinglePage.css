@@ -1,0 +1,322 @@
+/* ==========================================================================
+   1. CORE WRAPPER & NAVIGATION HOOKS
+   ========================================================================== */
+
+.single-product-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 24px 80px 24px;
+}
+
+/* Back Link Action Handle Button */
+.back-nav-btn {
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 24px;
+  transition: color 0.15s ease;
+}
+
+.back-nav-btn:hover {
+  color: #f97316; /* Application theme orange hover */
+}
+
+/* ==========================================================================
+   2. CORE CONTAINER SPACING SYSTEM (GRID WRAPPER)
+   ========================================================================== */
+
+.single-product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Exact split on desktop viewports */
+  gap: 48px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   3. LEFT SIDE: VISUAL BRAND SHOWCASE AREA
+   ========================================================================== */
+
+.product-image-section {
+  width: 100%;
+}
+
+.main-image-wrapper {
+  width: 100%;
+  height: 480px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.main-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Prevents database images from distorting or scaling incorrectly */
+}
+
+/* ==========================================================================
+   4. RIGHT SIDE: SPECIFICATION SHEET & PRICING CONTENT
+   ========================================================================== */
+
+.product-info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-meta-category {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.product-main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.025em;
+}
+
+/* --- Ratings Cluster Rows --- */
+.product-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stars-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.interactive-star {
+  cursor: pointer;
+}
+
+.star-icon {
+  font-size: 1.4rem;
+  transition: transform 0.1s ease;
+}
+
+.star-icon.filled {
+  color: #f59e0b; /* Beautiful golden yellow fill */
+}
+
+.star-icon.empty {
+  color: #e2e8f0;
+}
+
+.interactive-star:hover .star-icon {
+  transform: scale(1.15);
+}
+
+.rating-numerical-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* --- Pricing Layer Block --- */
+.product-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.product-old-price {
+  font-size: 1.25rem;
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.product-new-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f97316; /* Primary accent theme orange */
+}
+
+/* --- Detailed Paragraph Blocks --- */
+.product-description-block {
+  margin-bottom: 36px;
+}
+
+.product-description-block h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.product-description-block p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* ==========================================================================
+   5. TRANSACTION CALL-TO-ACTION TRIGGERS
+   ========================================================================== */
+
+.product-actions-grid {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Main Add To Cart Primary Engine */
+.add-cart-primary {
+  flex: 1;
+  height: 52px;
+  background-color: #0f172a; /* Clean contrast dark slate brand color */
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.add-cart-primary:hover {
+  background-color: #1e293b;
+}
+
+.add-cart-primary:active {
+  transform: scale(0.99);
+}
+
+/* Secondary circular wishlist save button */
+.wishlist-secondary {
+  width: 52px;
+  height: 52px;
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wishlist-secondary:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+  transform: scale(1.04);
+}
+
+/* State when item is already saved inside wishList storage arrays */
+.wishlist-secondary.active-saved {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+/* ==========================================================================
+   6. LOADING AND ERROR FALLBACK INTERFACES
+   ========================================================================== */
+
+.single-page-loading,
+.single-page-error {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f1f5f9;
+  border-top-color: #f97316;
+  border-radius: 50%;
+  animation: turnAnimation 0.8s linear infinite;
+}
+
+@keyframes turnAnimation {
+  to { transform: rotate(360deg); }
+}
+
+.back-home-btn {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE SCALE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .single-product-container {
+    grid-template-columns: 1fr; /* Stacks image top, information block bottom on tablets/mobiles */
+    gap: 32px;
+  }
+
+  .main-image-wrapper {
+    height: 360px; /* Reduce view constraints slightly on mid-sized mobile units */
+  }
+
+  .product-main-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .single-product-page {
+    padding: 20px 16px 40px 16px;
+  }
+
+  .main-image-wrapper {
+    height: 280px;
+  }
+
+  .product-actions-grid {
+    flex-wrap: wrap; /* Wraps action buttons if screen width falls below minimum standard width layout scales */
+  }
+
+  .add-cart-primary {
+    width: 100%;
+    order: 1;
+  }
+}
