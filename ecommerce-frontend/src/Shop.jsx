@@ -20,6 +20,7 @@ const Shop = () => {
         if (!response.ok) throw new Error('Failed to fetch shop inventory');
         const data = await response.json();
         setProducts(data);
+        console.log(data);
       } catch (error) {
         console.error("Error loading live database items into Shop:", error);
       } finally {
@@ -29,11 +30,11 @@ const Shop = () => {
     fetchShopProducts();
   }, [API_BASE_URL]);
 
-  const categories = ['all', ...Array.from(new Set(products.map((product) => product.category)))];
+  const categories = ['all', ...Array.from(new Set(products.map((product) => product.catagory)))];
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = activeCategory === 'all' || product.category === activeCategory;
-    const matchesSearch = product.name?.toLowerCase().includes(searchTerm.toLowerCase()) || product.category?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = product.name?.toLowerCase().includes(searchTerm.toLowerCase()) || product.catagory?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -84,7 +85,7 @@ const Shop = () => {
                 setVisibleProducts(12);
               }}
             >
-              {category === 'all' ? 'All items' : category}
+              {category === 'all' ? 'All items' : category }
             </button>
           ))}
         </div>
